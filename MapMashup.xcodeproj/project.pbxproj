@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DB1E21814F7842600C7D0DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21714F7842600C7D0DF /* UIKit.framework */; };
+		1DB1E21A14F7842600C7D0DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21914F7842600C7D0DF /* Foundation.framework */; };
+		1DB1E21C14F7842600C7D0DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21B14F7842600C7D0DF /* CoreGraphics.framework */; };
+		1DB1E22214F7842600C7D0DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1E22014F7842600C7D0DF /* InfoPlist.strings */; };
+		1DB1E22414F7842600C7D0DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22314F7842600C7D0DF /* main.m */; };
+		1DB1E22814F7842600C7D0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22714F7842600C7D0DF /* AppDelegate.m */; };
+		1DB1E22B14F7842600C7D0DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */; };
+		1DB1E22E14F7842600C7D0DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22D14F7842600C7D0DF /* ViewController.m */; };
+		1DB1E23614F7842600C7D0DF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E23514F7842600C7D0DF /* SenTestingKit.framework */; };
+		1DB1E23714F7842600C7D0DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21714F7842600C7D0DF /* UIKit.framework */; };
+		1DB1E23814F7842600C7D0DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21914F7842600C7D0DF /* Foundation.framework */; };
+		1DB1E24014F7842600C7D0DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1E23E14F7842600C7D0DF /* InfoPlist.strings */; };
+		1DB1E24314F7842600C7D0DF /* MapMashupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E24214F7842600C7D0DF /* MapMashupTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1DB1E23914F7842600C7D0DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB1E20A14F7842600C7D0DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DB1E21214F7842600C7D0DF;
+			remoteInfo = MapMashup;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1DB1E21314F7842600C7D0DF /* MapMashup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapMashup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DB1E21714F7842600C7D0DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1DB1E21914F7842600C7D0DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1DB1E21B14F7842600C7D0DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */ = {isa = PBXFileReference; path = "MapMashup-Info.plist"; sourceTree = "<group>"; };
+		1DB1E22114F7842600C7D0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1DB1E22314F7842600C7D0DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1DB1E22514F7842600C7D0DF /* MapMashup-Prefix.pch */ = {isa = PBXFileReference; path = "MapMashup-Prefix.pch"; sourceTree = "<group>"; };
+		1DB1E22614F7842600C7D0DF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		1DB1E22714F7842600C7D0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1DB1E22A14F7842600C7D0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		1DB1E22C14F7842600C7D0DF /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		1DB1E22D14F7842600C7D0DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1DB1E23414F7842600C7D0DF /* MapMashupTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapMashupTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DB1E23514F7842600C7D0DF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1DB1E23D14F7842600C7D0DF /* MapMashupTests-Info.plist */ = {isa = PBXFileReference; path = "MapMashupTests-Info.plist"; sourceTree = "<group>"; };
+		1DB1E23F14F7842600C7D0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1DB1E24114F7842600C7D0DF /* MapMashupTests.h */ = {isa = PBXFileReference; path = MapMashupTests.h; sourceTree = "<group>"; };
+		1DB1E24214F7842600C7D0DF /* MapMashupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMashupTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1DB1E21014F7842600C7D0DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB1E21814F7842600C7D0DF /* UIKit.framework in Frameworks */,
+				1DB1E21A14F7842600C7D0DF /* Foundation.framework in Frameworks */,
+				1DB1E21C14F7842600C7D0DF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DB1E23014F7842600C7D0DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB1E23614F7842600C7D0DF /* SenTestingKit.framework in Frameworks */,
+				1DB1E23714F7842600C7D0DF /* UIKit.framework in Frameworks */,
+				1DB1E23814F7842600C7D0DF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1DB1E20814F7842600C7D0DF = {
+			isa = PBXGroup;
+			children = (
+				1DB1E21D14F7842600C7D0DF /* MapMashup */,
+				1DB1E23B14F7842600C7D0DF /* MapMashupTests */,
+				1DB1E21614F7842600C7D0DF /* Frameworks */,
+				1DB1E21414F7842600C7D0DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1DB1E21414F7842600C7D0DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DB1E21314F7842600C7D0DF /* MapMashup.app */,
+				1DB1E23414F7842600C7D0DF /* MapMashupTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DB1E21614F7842600C7D0DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DB1E21714F7842600C7D0DF /* UIKit.framework */,
+				1DB1E21914F7842600C7D0DF /* Foundation.framework */,
+				1DB1E21B14F7842600C7D0DF /* CoreGraphics.framework */,
+				1DB1E23514F7842600C7D0DF /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1DB1E21D14F7842600C7D0DF /* MapMashup */ = {
+			isa = PBXGroup;
+			children = (
+				1DB1E22614F7842600C7D0DF /* AppDelegate.h */,
+				1DB1E22714F7842600C7D0DF /* AppDelegate.m */,
+				1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */,
+				1DB1E22C14F7842600C7D0DF /* ViewController.h */,
+				1DB1E22D14F7842600C7D0DF /* ViewController.m */,
+				1DB1E21E14F7842600C7D0DF /* Supporting Files */,
+			);
+			path = MapMashup;
+			sourceTree = "<group>";
+		};
+		1DB1E21E14F7842600C7D0DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */,
+				1DB1E22014F7842600C7D0DF /* InfoPlist.strings */,
+				1DB1E22314F7842600C7D0DF /* main.m */,
+				1DB1E22514F7842600C7D0DF /* MapMashup-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DB1E23B14F7842600C7D0DF /* MapMashupTests */ = {
+			isa = PBXGroup;
+			children = (
+				1DB1E24114F7842600C7D0DF /* MapMashupTests.h */,
+				1DB1E24214F7842600C7D0DF /* MapMashupTests.m */,
+				1DB1E23C14F7842600C7D0DF /* Supporting Files */,
+			);
+			path = MapMashupTests;
+			sourceTree = "<group>";
+		};
+		1DB1E23C14F7842600C7D0DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DB1E23D14F7842600C7D0DF /* MapMashupTests-Info.plist */,
+				1DB1E23E14F7842600C7D0DF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1DB1E21214F7842600C7D0DF /* MapMashup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DB1E24614F7842600C7D0DF /* Build configuration list for PBXNativeTarget "MapMashup" */;
+			buildPhases = (
+				1DB1E20F14F7842600C7D0DF /* Sources */,
+				1DB1E21014F7842600C7D0DF /* Frameworks */,
+				1DB1E21114F7842600C7D0DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MapMashup;
+			productName = MapMashup;
+			productReference = 1DB1E21314F7842600C7D0DF /* MapMashup.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1DB1E23314F7842600C7D0DF /* MapMashupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DB1E24914F7842600C7D0DF /* Build configuration list for PBXNativeTarget "MapMashupTests" */;
+			buildPhases = (
+				1DB1E22F14F7842600C7D0DF /* Sources */,
+				1DB1E23014F7842600C7D0DF /* Frameworks */,
+				1DB1E23114F7842600C7D0DF /* Resources */,
+				1DB1E23214F7842600C7D0DF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DB1E23A14F7842600C7D0DF /* PBXTargetDependency */,
+			);
+			name = MapMashupTests;
+			productName = MapMashupTests;
+			productReference = 1DB1E23414F7842600C7D0DF /* MapMashupTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1DB1E20A14F7842600C7D0DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 1DB1E20D14F7842600C7D0DF /* Build configuration list for PBXProject "MapMashup" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1DB1E20814F7842600C7D0DF;
+			productRefGroup = 1DB1E21414F7842600C7D0DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1DB1E21214F7842600C7D0DF /* MapMashup */,
+				1DB1E23314F7842600C7D0DF /* MapMashupTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1DB1E21114F7842600C7D0DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB1E22214F7842600C7D0DF /* InfoPlist.strings in Resources */,
+				1DB1E22B14F7842600C7D0DF /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DB1E23114F7842600C7D0DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB1E24014F7842600C7D0DF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DB1E23214F7842600C7D0DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1DB1E20F14F7842600C7D0DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB1E22414F7842600C7D0DF /* main.m in Sources */,
+				1DB1E22814F7842600C7D0DF /* AppDelegate.m in Sources */,
+				1DB1E22E14F7842600C7D0DF /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DB1E22F14F7842600C7D0DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB1E24314F7842600C7D0DF /* MapMashupTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1DB1E23A14F7842600C7D0DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1DB1E21214F7842600C7D0DF /* MapMashup */;
+			targetProxy = 1DB1E23914F7842600C7D0DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1DB1E22014F7842600C7D0DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DB1E22114F7842600C7D0DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DB1E22A14F7842600C7D0DF /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		1DB1E23E14F7842600C7D0DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DB1E23F14F7842600C7D0DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DB1E24414F7842600C7D0DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		1DB1E24514F7842600C7D0DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1DB1E24714F7842600C7D0DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MapMashup/MapMashup-Prefix.pch";
+				INFOPLIST_FILE = "MapMashup/MapMashup-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1DB1E24814F7842600C7D0DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MapMashup/MapMashup-Prefix.pch";
+				INFOPLIST_FILE = "MapMashup/MapMashup-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1DB1E24A14F7842600C7D0DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MapMashup.app/MapMashup";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MapMashup/MapMashup-Prefix.pch";
+				INFOPLIST_FILE = "MapMashupTests/MapMashupTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1DB1E24B14F7842600C7D0DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MapMashup.app/MapMashup";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MapMashup/MapMashup-Prefix.pch";
+				INFOPLIST_FILE = "MapMashupTests/MapMashupTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DB1E20D14F7842600C7D0DF /* Build configuration list for PBXProject "MapMashup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DB1E24414F7842600C7D0DF /* Debug */,
+				1DB1E24514F7842600C7D0DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DB1E24614F7842600C7D0DF /* Build configuration list for PBXNativeTarget "MapMashup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DB1E24714F7842600C7D0DF /* Debug */,
+				1DB1E24814F7842600C7D0DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1DB1E24914F7842600C7D0DF /* Build configuration list for PBXNativeTarget "MapMashupTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DB1E24A14F7842600C7D0DF /* Debug */,
+				1DB1E24B14F7842600C7D0DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1DB1E20A14F7842600C7D0DF /* Project object */;
+}
