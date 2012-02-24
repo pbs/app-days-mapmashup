@@ -14,12 +14,123 @@
 		1DB1E22414F7842600C7D0DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22314F7842600C7D0DF /* main.m */; };
 		1DB1E22814F7842600C7D0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22714F7842600C7D0DF /* AppDelegate.m */; };
 		1DB1E22B14F7842600C7D0DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */; };
-		1DB1E22E14F7842600C7D0DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22D14F7842600C7D0DF /* ViewController.m */; };
+		1DB1E22E14F7842600C7D0DF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22D14F7842600C7D0DF /* MapViewController.m */; };
 		1DB1E23614F7842600C7D0DF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E23514F7842600C7D0DF /* SenTestingKit.framework */; };
 		1DB1E23714F7842600C7D0DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21714F7842600C7D0DF /* UIKit.framework */; };
 		1DB1E23814F7842600C7D0DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21914F7842600C7D0DF /* Foundation.framework */; };
 		1DB1E24014F7842600C7D0DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1E23E14F7842600C7D0DF /* InfoPlist.strings */; };
 		1DB1E24314F7842600C7D0DF /* MapMashupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E24214F7842600C7D0DF /* MapMashupTests.m */; };
+		1DB1E24D14F784DE00C7D0DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E24C14F784DE00C7D0DF /* MapKit.framework */; };
+		1DB1E24F14F7851100C7D0DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E24E14F7851100C7D0DF /* CoreLocation.framework */; };
+		1DEC2F9D14F7B9D10038DBB6 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2F9C14F7B9D10038DBB6 /* SettingsViewController.xib */; };
+		1DEC2FA414F7BAF20038DBB6 /* PBS-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2FA314F7BAF20038DBB6 /* PBS-Logo.png */; };
+		1DEC2FA614F7BB710038DBB6 /* Settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2FA514F7BB710038DBB6 /* Settings-icon.png */; };
+		1DEC2FA814F7BC980038DBB6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2FA714F7BC980038DBB6 /* Localizable.strings */; };
+		1DF8386114F7CF4F007889F5 /* BaseDTVAPIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8384C14F7CF4F007889F5 /* BaseDTVAPIDelegate.m */; };
+		1DF8386214F7CF4F007889F5 /* DTVAirdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8384E14F7CF4F007889F5 /* DTVAirdate.m */; };
+		1DF8386314F7CF4F007889F5 /* DTVAPIAirdateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385014F7CF4F007889F5 /* DTVAPIAirdateDelegate.m */; };
+		1DF8386414F7CF4F007889F5 /* DTVAPIFeedDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385214F7CF4F007889F5 /* DTVAPIFeedDelegate.m */; };
+		1DF8386514F7CF4F007889F5 /* DTVAPIHeadendDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385414F7CF4F007889F5 /* DTVAPIHeadendDelegate.m */; };
+		1DF8386614F7CF4F007889F5 /* DTVAPIProgramDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385614F7CF4F007889F5 /* DTVAPIProgramDelegate.m */; };
+		1DF8386714F7CF4F007889F5 /* DTVAPIStationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385814F7CF4F007889F5 /* DTVAPIStationDelegate.m */; };
+		1DF8386814F7CF4F007889F5 /* DTVClientAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385A14F7CF4F007889F5 /* DTVClientAPI.m */; };
+		1DF8386914F7CF4F007889F5 /* DTVFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385C14F7CF4F007889F5 /* DTVFeed.m */; };
+		1DF8386A14F7CF4F007889F5 /* DTVHeadend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385E14F7CF4F007889F5 /* DTVHeadend.m */; };
+		1DF8386B14F7CF4F007889F5 /* DTVStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8386014F7CF4F007889F5 /* DTVStation.m */; };
+		1DF8386C14F7CF89007889F5 /* BaseDTVAPIDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8384B14F7CF4F007889F5 /* BaseDTVAPIDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8386D14F7CF89007889F5 /* BaseDTVAPIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8384C14F7CF4F007889F5 /* BaseDTVAPIDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8386E14F7CF89007889F5 /* DTVAirdate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8384D14F7CF4F007889F5 /* DTVAirdate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8386F14F7CF89007889F5 /* DTVAirdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8384E14F7CF4F007889F5 /* DTVAirdate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387014F7CF89007889F5 /* DTVAPIAirdateDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8384F14F7CF4F007889F5 /* DTVAPIAirdateDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387114F7CF89007889F5 /* DTVAPIAirdateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385014F7CF4F007889F5 /* DTVAPIAirdateDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387214F7CF89007889F5 /* DTVAPIFeedDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385114F7CF4F007889F5 /* DTVAPIFeedDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387314F7CF89007889F5 /* DTVAPIFeedDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385214F7CF4F007889F5 /* DTVAPIFeedDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387414F7CF89007889F5 /* DTVAPIHeadendDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385314F7CF4F007889F5 /* DTVAPIHeadendDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387514F7CF89007889F5 /* DTVAPIHeadendDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385414F7CF4F007889F5 /* DTVAPIHeadendDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387614F7CF89007889F5 /* DTVAPIProgramDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385514F7CF4F007889F5 /* DTVAPIProgramDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387714F7CF89007889F5 /* DTVAPIProgramDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385614F7CF4F007889F5 /* DTVAPIProgramDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387814F7CF89007889F5 /* DTVAPIStationDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385714F7CF4F007889F5 /* DTVAPIStationDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387914F7CF89007889F5 /* DTVAPIStationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385814F7CF4F007889F5 /* DTVAPIStationDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387A14F7CF89007889F5 /* DTVClientAPI.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385914F7CF4F007889F5 /* DTVClientAPI.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387B14F7CF89007889F5 /* DTVClientAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385A14F7CF4F007889F5 /* DTVClientAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387C14F7CF89007889F5 /* DTVFeed.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385B14F7CF4F007889F5 /* DTVFeed.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387D14F7CF89007889F5 /* DTVFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385C14F7CF4F007889F5 /* DTVFeed.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387E14F7CF89007889F5 /* DTVHeadend.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385D14F7CF4F007889F5 /* DTVHeadend.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8387F14F7CF89007889F5 /* DTVHeadend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385E14F7CF4F007889F5 /* DTVHeadend.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8388014F7CF89007889F5 /* DTVStation.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8385F14F7CF4F007889F5 /* DTVStation.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8388114F7CF89007889F5 /* DTVStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8386014F7CF4F007889F5 /* DTVStation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8389714F7CFF9007889F5 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388414F7CFF9007889F5 /* ASIAuthenticationDialog.m */; };
+		1DF8389814F7CFF9007889F5 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388714F7CFF9007889F5 /* ASIDataCompressor.m */; };
+		1DF8389914F7CFF9007889F5 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388914F7CFF9007889F5 /* ASIDataDecompressor.m */; };
+		1DF8389A14F7CFF9007889F5 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388B14F7CFF9007889F5 /* ASIDownloadCache.m */; };
+		1DF8389B14F7CFF9007889F5 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388D14F7CFF9007889F5 /* ASIFormDataRequest.m */; };
+		1DF8389C14F7CFF9007889F5 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388F14F7CFF9007889F5 /* ASIHTTPRequest.m */; };
+		1DF8389D14F7CFF9007889F5 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389314F7CFF9007889F5 /* ASIInputStream.m */; };
+		1DF8389E14F7CFF9007889F5 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389514F7CFF9007889F5 /* ASINetworkQueue.m */; };
+		1DF838A314F7D022007889F5 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838A214F7D021007889F5 /* ASIWebPageRequest.m */; };
+		1DF838A614F7D02E007889F5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838A514F7D02E007889F5 /* Reachability.m */; };
+		1DF838A714F7D03D007889F5 /* Reachability.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838A414F7D02E007889F5 /* Reachability.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838A814F7D03D007889F5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838A514F7D02E007889F5 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838A914F7D03D007889F5 /* ASIWebPageRequest.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838A114F7D021007889F5 /* ASIWebPageRequest.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838AA14F7D03D007889F5 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838A214F7D021007889F5 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838AB14F7D03D007889F5 /* ASIAuthenticationDialog.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388314F7CFF9007889F5 /* ASIAuthenticationDialog.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838AC14F7D03D007889F5 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388414F7CFF9007889F5 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838AD14F7D03D007889F5 /* ASICacheDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388514F7CFF9007889F5 /* ASICacheDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838AE14F7D03D007889F5 /* ASIDataCompressor.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388614F7CFF9007889F5 /* ASIDataCompressor.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838AF14F7D03D007889F5 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388714F7CFF9007889F5 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B014F7D03D007889F5 /* ASIDataDecompressor.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388814F7CFF9007889F5 /* ASIDataDecompressor.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B114F7D03D007889F5 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388914F7CFF9007889F5 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B214F7D03D007889F5 /* ASIDownloadCache.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388A14F7CFF9007889F5 /* ASIDownloadCache.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B314F7D03D007889F5 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388B14F7CFF9007889F5 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B414F7D03D007889F5 /* ASIFormDataRequest.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388C14F7CFF9007889F5 /* ASIFormDataRequest.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B514F7D03D007889F5 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388D14F7CFF9007889F5 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B614F7D03D007889F5 /* ASIHTTPRequest.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388E14F7CFF9007889F5 /* ASIHTTPRequest.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B714F7D03D007889F5 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8388F14F7CFF9007889F5 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B814F7D03D007889F5 /* ASIHTTPRequestConfig.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389014F7CFF9007889F5 /* ASIHTTPRequestConfig.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838B914F7D03D007889F5 /* ASIHTTPRequestDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389114F7CFF9007889F5 /* ASIHTTPRequestDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838BA14F7D03D007889F5 /* ASIInputStream.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389214F7CFF9007889F5 /* ASIInputStream.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838BB14F7D03D007889F5 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389314F7CFF9007889F5 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838BC14F7D03D007889F5 /* ASINetworkQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389414F7CFF9007889F5 /* ASINetworkQueue.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838BD14F7D03D007889F5 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389514F7CFF9007889F5 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838BE14F7D03D007889F5 /* ASIProgressDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8389614F7CFF9007889F5 /* ASIProgressDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838C514F7D1A6007889F5 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF838C414F7D1A6007889F5 /* libxml2.dylib */; };
+		1DF838C714F7D1FB007889F5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF838C614F7D1FB007889F5 /* CFNetwork.framework */; };
+		1DF838C914F7D205007889F5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF838C814F7D205007889F5 /* SystemConfiguration.framework */; };
+		1DF838CB14F7D20F007889F5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF838CA14F7D20F007889F5 /* MobileCoreServices.framework */; };
+		1DF838CD14F7D225007889F5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF838CC14F7D225007889F5 /* libz.dylib */; };
+		1DF838D214F7D260007889F5 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838D014F7D260007889F5 /* JSONKit.m */; };
+		1DF838D314F7D260007889F5 /* README.html in Resources */ = {isa = PBXBuildFile; fileRef = 1DF838D114F7D260007889F5 /* README.html */; };
+		1DF838D414F7D270007889F5 /* JSONKit.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838CF14F7D260007889F5 /* JSONKit.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838D514F7D270007889F5 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838D014F7D260007889F5 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838ED14F7D3B2007889F5 /* BaseCOVEAPIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838DC14F7D3B2007889F5 /* BaseCOVEAPIDelegate.m */; };
+		1DF838EE14F7D3B2007889F5 /* COVEAPICategoryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838DE14F7D3B2007889F5 /* COVEAPICategoryDelegate.m */; };
+		1DF838EF14F7D3B2007889F5 /* COVEAPIEpisodeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E014F7D3B2007889F5 /* COVEAPIEpisodeDelegate.m */; };
+		1DF838F014F7D3B2007889F5 /* COVEAPIGroupDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E214F7D3B2007889F5 /* COVEAPIGroupDelegate.m */; };
+		1DF838F114F7D3B2007889F5 /* COVEAPIProgramDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E414F7D3B2007889F5 /* COVEAPIProgramDelegate.m */; };
+		1DF838F214F7D3B2007889F5 /* COVECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E614F7D3B2007889F5 /* COVECategory.m */; };
+		1DF838F314F7D3B2007889F5 /* COVEClientAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E814F7D3B2007889F5 /* COVEClientAPI.m */; };
+		1DF838F414F7D3B2007889F5 /* COVEEpisode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */; };
+		1DF838F514F7D3B2007889F5 /* COVEProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EC14F7D3B2007889F5 /* COVEProgram.m */; };
+		1DF838F614F7D3C3007889F5 /* BaseCOVEAPIDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838DB14F7D3B2007889F5 /* BaseCOVEAPIDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838F714F7D3C4007889F5 /* BaseCOVEAPIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838DC14F7D3B2007889F5 /* BaseCOVEAPIDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838F814F7D3C4007889F5 /* COVEAPICategoryDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838DD14F7D3B2007889F5 /* COVEAPICategoryDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838F914F7D3C4007889F5 /* COVEAPICategoryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838DE14F7D3B2007889F5 /* COVEAPICategoryDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838FA14F7D3C4007889F5 /* COVEAPIEpisodeDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838DF14F7D3B2007889F5 /* COVEAPIEpisodeDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838FB14F7D3C4007889F5 /* COVEAPIEpisodeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E014F7D3B2007889F5 /* COVEAPIEpisodeDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838FC14F7D3C4007889F5 /* COVEAPIGroupDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E114F7D3B2007889F5 /* COVEAPIGroupDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838FD14F7D3C4007889F5 /* COVEAPIGroupDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E214F7D3B2007889F5 /* COVEAPIGroupDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838FE14F7D3C4007889F5 /* COVEAPIProgramDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E314F7D3B2007889F5 /* COVEAPIProgramDelegate.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF838FF14F7D3C4007889F5 /* COVEAPIProgramDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E414F7D3B2007889F5 /* COVEAPIProgramDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390014F7D3C4007889F5 /* COVECategory.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E514F7D3B2007889F5 /* COVECategory.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390114F7D3C4007889F5 /* COVECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E614F7D3B2007889F5 /* COVECategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390214F7D3C4007889F5 /* COVEClientAPI.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E714F7D3B2007889F5 /* COVEClientAPI.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390314F7D3C4007889F5 /* COVEClientAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E814F7D3B2007889F5 /* COVEClientAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390414F7D3C4007889F5 /* COVEEpisode.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838E914F7D3B2007889F5 /* COVEEpisode.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390514F7D3C4007889F5 /* COVEEpisode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390614F7D3C4007889F5 /* COVEProgram.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EB14F7D3B2007889F5 /* COVEProgram.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390714F7D3C4007889F5 /* COVEProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EC14F7D3B2007889F5 /* COVEProgram.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DF8390914F7DDA7007889F5 /* mapOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF8390814F7DDA7007889F5 /* mapOverlay.png */; };
+		DCB254EE14F8463A00444352 /* FCCService.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB254ED14F8463A00444352 /* FCCService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,21 +148,103 @@
 		1DB1E21714F7842600C7D0DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1DB1E21914F7842600C7D0DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DB1E21B14F7842600C7D0DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */ = {isa = PBXFileReference; path = "MapMashup-Info.plist"; sourceTree = "<group>"; };
+		1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapMashup-Info.plist"; sourceTree = "<group>"; };
 		1DB1E22114F7842600C7D0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DB1E22314F7842600C7D0DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1DB1E22514F7842600C7D0DF /* MapMashup-Prefix.pch */ = {isa = PBXFileReference; path = "MapMashup-Prefix.pch"; sourceTree = "<group>"; };
-		1DB1E22614F7842600C7D0DF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		1DB1E22514F7842600C7D0DF /* MapMashup-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapMashup-Prefix.pch"; sourceTree = "<group>"; };
+		1DB1E22614F7842600C7D0DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DB1E22714F7842600C7D0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1DB1E22A14F7842600C7D0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		1DB1E22C14F7842600C7D0DF /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
-		1DB1E22D14F7842600C7D0DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1DB1E22C14F7842600C7D0DF /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		1DB1E22D14F7842600C7D0DF /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		1DB1E23414F7842600C7D0DF /* MapMashupTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapMashupTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB1E23514F7842600C7D0DF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1DB1E23D14F7842600C7D0DF /* MapMashupTests-Info.plist */ = {isa = PBXFileReference; path = "MapMashupTests-Info.plist"; sourceTree = "<group>"; };
+		1DB1E23D14F7842600C7D0DF /* MapMashupTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapMashupTests-Info.plist"; sourceTree = "<group>"; };
 		1DB1E23F14F7842600C7D0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1DB1E24114F7842600C7D0DF /* MapMashupTests.h */ = {isa = PBXFileReference; path = MapMashupTests.h; sourceTree = "<group>"; };
+		1DB1E24114F7842600C7D0DF /* MapMashupTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapMashupTests.h; sourceTree = "<group>"; };
 		1DB1E24214F7842600C7D0DF /* MapMashupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMashupTests.m; sourceTree = "<group>"; };
+		1DB1E24C14F784DE00C7D0DF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1DB1E24E14F7851100C7D0DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1DEC2F9C14F7B9D10038DBB6 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		1DEC2FA314F7BAF20038DBB6 /* PBS-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBS-Logo.png"; sourceTree = "<group>"; };
+		1DEC2FA514F7BB710038DBB6 /* Settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-icon.png"; sourceTree = "<group>"; };
+		1DEC2FA714F7BC980038DBB6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1DF8384B14F7CF4F007889F5 /* BaseDTVAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDTVAPIDelegate.h; sourceTree = "<group>"; };
+		1DF8384C14F7CF4F007889F5 /* BaseDTVAPIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDTVAPIDelegate.m; sourceTree = "<group>"; };
+		1DF8384D14F7CF4F007889F5 /* DTVAirdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVAirdate.h; sourceTree = "<group>"; };
+		1DF8384E14F7CF4F007889F5 /* DTVAirdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVAirdate.m; sourceTree = "<group>"; };
+		1DF8384F14F7CF4F007889F5 /* DTVAPIAirdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVAPIAirdateDelegate.h; sourceTree = "<group>"; };
+		1DF8385014F7CF4F007889F5 /* DTVAPIAirdateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVAPIAirdateDelegate.m; sourceTree = "<group>"; };
+		1DF8385114F7CF4F007889F5 /* DTVAPIFeedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVAPIFeedDelegate.h; sourceTree = "<group>"; };
+		1DF8385214F7CF4F007889F5 /* DTVAPIFeedDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVAPIFeedDelegate.m; sourceTree = "<group>"; };
+		1DF8385314F7CF4F007889F5 /* DTVAPIHeadendDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVAPIHeadendDelegate.h; sourceTree = "<group>"; };
+		1DF8385414F7CF4F007889F5 /* DTVAPIHeadendDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVAPIHeadendDelegate.m; sourceTree = "<group>"; };
+		1DF8385514F7CF4F007889F5 /* DTVAPIProgramDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVAPIProgramDelegate.h; sourceTree = "<group>"; };
+		1DF8385614F7CF4F007889F5 /* DTVAPIProgramDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVAPIProgramDelegate.m; sourceTree = "<group>"; };
+		1DF8385714F7CF4F007889F5 /* DTVAPIStationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVAPIStationDelegate.h; sourceTree = "<group>"; };
+		1DF8385814F7CF4F007889F5 /* DTVAPIStationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVAPIStationDelegate.m; sourceTree = "<group>"; };
+		1DF8385914F7CF4F007889F5 /* DTVClientAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVClientAPI.h; sourceTree = "<group>"; };
+		1DF8385A14F7CF4F007889F5 /* DTVClientAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVClientAPI.m; sourceTree = "<group>"; };
+		1DF8385B14F7CF4F007889F5 /* DTVFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVFeed.h; sourceTree = "<group>"; };
+		1DF8385C14F7CF4F007889F5 /* DTVFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVFeed.m; sourceTree = "<group>"; };
+		1DF8385D14F7CF4F007889F5 /* DTVHeadend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVHeadend.h; sourceTree = "<group>"; };
+		1DF8385E14F7CF4F007889F5 /* DTVHeadend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVHeadend.m; sourceTree = "<group>"; };
+		1DF8385F14F7CF4F007889F5 /* DTVStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTVStation.h; sourceTree = "<group>"; };
+		1DF8386014F7CF4F007889F5 /* DTVStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTVStation.m; sourceTree = "<group>"; };
+		1DF8388314F7CFF9007889F5 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		1DF8388414F7CFF9007889F5 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		1DF8388514F7CFF9007889F5 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		1DF8388614F7CFF9007889F5 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		1DF8388714F7CFF9007889F5 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		1DF8388814F7CFF9007889F5 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		1DF8388914F7CFF9007889F5 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		1DF8388A14F7CFF9007889F5 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		1DF8388B14F7CFF9007889F5 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		1DF8388C14F7CFF9007889F5 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		1DF8388D14F7CFF9007889F5 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		1DF8388E14F7CFF9007889F5 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		1DF8388F14F7CFF9007889F5 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		1DF8389014F7CFF9007889F5 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		1DF8389114F7CFF9007889F5 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		1DF8389214F7CFF9007889F5 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		1DF8389314F7CFF9007889F5 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		1DF8389414F7CFF9007889F5 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		1DF8389514F7CFF9007889F5 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		1DF8389614F7CFF9007889F5 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		1DF838A114F7D021007889F5 /* ASIWebPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIWebPageRequest.h; sourceTree = "<group>"; };
+		1DF838A214F7D021007889F5 /* ASIWebPageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIWebPageRequest.m; sourceTree = "<group>"; };
+		1DF838A414F7D02E007889F5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1DF838A514F7D02E007889F5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1DF838C414F7D1A6007889F5 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1DF838C614F7D1FB007889F5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1DF838C814F7D205007889F5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1DF838CA14F7D20F007889F5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1DF838CC14F7D225007889F5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1DF838CF14F7D260007889F5 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		1DF838D014F7D260007889F5 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		1DF838D114F7D260007889F5 /* README.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = README.html; sourceTree = "<group>"; };
+		1DF838D714F7D2B9007889F5 /* CommonDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefines.h; sourceTree = "<group>"; };
+		1DF838DB14F7D3B2007889F5 /* BaseCOVEAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCOVEAPIDelegate.h; sourceTree = "<group>"; };
+		1DF838DC14F7D3B2007889F5 /* BaseCOVEAPIDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCOVEAPIDelegate.m; sourceTree = "<group>"; };
+		1DF838DD14F7D3B2007889F5 /* COVEAPICategoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEAPICategoryDelegate.h; sourceTree = "<group>"; };
+		1DF838DE14F7D3B2007889F5 /* COVEAPICategoryDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEAPICategoryDelegate.m; sourceTree = "<group>"; };
+		1DF838DF14F7D3B2007889F5 /* COVEAPIEpisodeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEAPIEpisodeDelegate.h; sourceTree = "<group>"; };
+		1DF838E014F7D3B2007889F5 /* COVEAPIEpisodeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEAPIEpisodeDelegate.m; sourceTree = "<group>"; };
+		1DF838E114F7D3B2007889F5 /* COVEAPIGroupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEAPIGroupDelegate.h; sourceTree = "<group>"; };
+		1DF838E214F7D3B2007889F5 /* COVEAPIGroupDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEAPIGroupDelegate.m; sourceTree = "<group>"; };
+		1DF838E314F7D3B2007889F5 /* COVEAPIProgramDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEAPIProgramDelegate.h; sourceTree = "<group>"; };
+		1DF838E414F7D3B2007889F5 /* COVEAPIProgramDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEAPIProgramDelegate.m; sourceTree = "<group>"; };
+		1DF838E514F7D3B2007889F5 /* COVECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVECategory.h; sourceTree = "<group>"; };
+		1DF838E614F7D3B2007889F5 /* COVECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVECategory.m; sourceTree = "<group>"; };
+		1DF838E714F7D3B2007889F5 /* COVEClientAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEClientAPI.h; sourceTree = "<group>"; };
+		1DF838E814F7D3B2007889F5 /* COVEClientAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEClientAPI.m; sourceTree = "<group>"; };
+		1DF838E914F7D3B2007889F5 /* COVEEpisode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEEpisode.h; sourceTree = "<group>"; };
+		1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEEpisode.m; sourceTree = "<group>"; };
+		1DF838EB14F7D3B2007889F5 /* COVEProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEProgram.h; sourceTree = "<group>"; };
+		1DF838EC14F7D3B2007889F5 /* COVEProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEProgram.m; sourceTree = "<group>"; };
+		1DF8390814F7DDA7007889F5 /* mapOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapOverlay.png; sourceTree = "<group>"; };
+		DCB254EC14F8463A00444352 /* FCCService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCService.h; sourceTree = "<group>"; };
+		DCB254ED14F8463A00444352 /* FCCService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +252,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF838CB14F7D20F007889F5 /* MobileCoreServices.framework in Frameworks */,
+				1DF838C914F7D205007889F5 /* SystemConfiguration.framework in Frameworks */,
+				1DF838C714F7D1FB007889F5 /* CFNetwork.framework in Frameworks */,
+				1DB1E24F14F7851100C7D0DF /* CoreLocation.framework in Frameworks */,
+				1DB1E24D14F784DE00C7D0DF /* MapKit.framework in Frameworks */,
 				1DB1E21814F7842600C7D0DF /* UIKit.framework in Frameworks */,
 				1DB1E21A14F7842600C7D0DF /* Foundation.framework in Frameworks */,
 				1DB1E21C14F7842600C7D0DF /* CoreGraphics.framework in Frameworks */,
+				1DF838C514F7D1A6007889F5 /* libxml2.dylib in Frameworks */,
+				1DF838CD14F7D225007889F5 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +300,13 @@
 		1DB1E21614F7842600C7D0DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1DF838CC14F7D225007889F5 /* libz.dylib */,
+				1DF838CA14F7D20F007889F5 /* MobileCoreServices.framework */,
+				1DF838C814F7D205007889F5 /* SystemConfiguration.framework */,
+				1DF838C614F7D1FB007889F5 /* CFNetwork.framework */,
+				1DF838C414F7D1A6007889F5 /* libxml2.dylib */,
+				1DB1E24E14F7851100C7D0DF /* CoreLocation.framework */,
+				1DB1E24C14F784DE00C7D0DF /* MapKit.framework */,
 				1DB1E21714F7842600C7D0DF /* UIKit.framework */,
 				1DB1E21914F7842600C7D0DF /* Foundation.framework */,
 				1DB1E21B14F7842600C7D0DF /* CoreGraphics.framework */,
@@ -111,11 +318,14 @@
 		1DB1E21D14F7842600C7D0DF /* MapMashup */ = {
 			isa = PBXGroup;
 			children = (
+				1DF838CE14F7D24F007889F5 /* JSONKit */,
+				1DF8388214F7CFE8007889F5 /* ASIHTTPRequest */,
+				1DF8384714F7CF15007889F5 /* Common */,
 				1DB1E22614F7842600C7D0DF /* AppDelegate.h */,
 				1DB1E22714F7842600C7D0DF /* AppDelegate.m */,
 				1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */,
-				1DB1E22C14F7842600C7D0DF /* ViewController.h */,
-				1DB1E22D14F7842600C7D0DF /* ViewController.m */,
+				1DB1E22C14F7842600C7D0DF /* MapViewController.h */,
+				1DB1E22D14F7842600C7D0DF /* MapViewController.m */,
 				1DB1E21E14F7842600C7D0DF /* Supporting Files */,
 			);
 			path = MapMashup;
@@ -124,10 +334,13 @@
 		1DB1E21E14F7842600C7D0DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1DEC2FA214F7BAC80038DBB6 /* images */,
+				1DEC2F9A14F7B9B90038DBB6 /* xibs */,
 				1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */,
 				1DB1E22014F7842600C7D0DF /* InfoPlist.strings */,
 				1DB1E22314F7842600C7D0DF /* main.m */,
 				1DB1E22514F7842600C7D0DF /* MapMashup-Prefix.pch */,
+				1DEC2FA714F7BC980038DBB6 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -149,6 +362,163 @@
 				1DB1E23E14F7842600C7D0DF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DEC2F9A14F7B9B90038DBB6 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC2F9C14F7B9D10038DBB6 /* SettingsViewController.xib */,
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		1DEC2FA214F7BAC80038DBB6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1DF8390814F7DDA7007889F5 /* mapOverlay.png */,
+				1DEC2FA514F7BB710038DBB6 /* Settings-icon.png */,
+				1DEC2FA314F7BAF20038DBB6 /* PBS-Logo.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		1DF8384714F7CF15007889F5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838D614F7D2AF007889F5 /* Utils */,
+				1DF8384914F7CF2F007889F5 /* PBS API Clients */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		1DF8384914F7CF2F007889F5 /* PBS API Clients */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838DA14F7D39C007889F5 /* COVE */,
+				1DF8384A14F7CF3A007889F5 /* DTV */,
+			);
+			name = "PBS API Clients";
+			sourceTree = "<group>";
+		};
+		1DF8384A14F7CF3A007889F5 /* DTV */ = {
+			isa = PBXGroup;
+			children = (
+				1DF8384B14F7CF4F007889F5 /* BaseDTVAPIDelegate.h */,
+				1DF8384C14F7CF4F007889F5 /* BaseDTVAPIDelegate.m */,
+				1DF8384D14F7CF4F007889F5 /* DTVAirdate.h */,
+				1DF8384E14F7CF4F007889F5 /* DTVAirdate.m */,
+				1DF8384F14F7CF4F007889F5 /* DTVAPIAirdateDelegate.h */,
+				1DF8385014F7CF4F007889F5 /* DTVAPIAirdateDelegate.m */,
+				1DF8385114F7CF4F007889F5 /* DTVAPIFeedDelegate.h */,
+				1DF8385214F7CF4F007889F5 /* DTVAPIFeedDelegate.m */,
+				1DF8385314F7CF4F007889F5 /* DTVAPIHeadendDelegate.h */,
+				1DF8385414F7CF4F007889F5 /* DTVAPIHeadendDelegate.m */,
+				1DF8385514F7CF4F007889F5 /* DTVAPIProgramDelegate.h */,
+				1DF8385614F7CF4F007889F5 /* DTVAPIProgramDelegate.m */,
+				1DF8385714F7CF4F007889F5 /* DTVAPIStationDelegate.h */,
+				1DF8385814F7CF4F007889F5 /* DTVAPIStationDelegate.m */,
+				1DF8385914F7CF4F007889F5 /* DTVClientAPI.h */,
+				1DF8385A14F7CF4F007889F5 /* DTVClientAPI.m */,
+				1DF8385B14F7CF4F007889F5 /* DTVFeed.h */,
+				1DF8385C14F7CF4F007889F5 /* DTVFeed.m */,
+				1DF8385D14F7CF4F007889F5 /* DTVHeadend.h */,
+				1DF8385E14F7CF4F007889F5 /* DTVHeadend.m */,
+				1DF8385F14F7CF4F007889F5 /* DTVStation.h */,
+				1DF8386014F7CF4F007889F5 /* DTVStation.m */,
+			);
+			name = DTV;
+			sourceTree = "<group>";
+		};
+		1DF8388214F7CFE8007889F5 /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838A014F7D00D007889F5 /* Reachability */,
+				1DF8389F14F7D002007889F5 /* ASIWebPageRequest */,
+				1DF8388314F7CFF9007889F5 /* ASIAuthenticationDialog.h */,
+				1DF8388414F7CFF9007889F5 /* ASIAuthenticationDialog.m */,
+				1DF8388514F7CFF9007889F5 /* ASICacheDelegate.h */,
+				1DF8388614F7CFF9007889F5 /* ASIDataCompressor.h */,
+				1DF8388714F7CFF9007889F5 /* ASIDataCompressor.m */,
+				1DF8388814F7CFF9007889F5 /* ASIDataDecompressor.h */,
+				1DF8388914F7CFF9007889F5 /* ASIDataDecompressor.m */,
+				1DF8388A14F7CFF9007889F5 /* ASIDownloadCache.h */,
+				1DF8388B14F7CFF9007889F5 /* ASIDownloadCache.m */,
+				1DF8388C14F7CFF9007889F5 /* ASIFormDataRequest.h */,
+				1DF8388D14F7CFF9007889F5 /* ASIFormDataRequest.m */,
+				1DF8388E14F7CFF9007889F5 /* ASIHTTPRequest.h */,
+				1DF8388F14F7CFF9007889F5 /* ASIHTTPRequest.m */,
+				1DF8389014F7CFF9007889F5 /* ASIHTTPRequestConfig.h */,
+				1DF8389114F7CFF9007889F5 /* ASIHTTPRequestDelegate.h */,
+				1DF8389214F7CFF9007889F5 /* ASIInputStream.h */,
+				1DF8389314F7CFF9007889F5 /* ASIInputStream.m */,
+				1DF8389414F7CFF9007889F5 /* ASINetworkQueue.h */,
+				1DF8389514F7CFF9007889F5 /* ASINetworkQueue.m */,
+				1DF8389614F7CFF9007889F5 /* ASIProgressDelegate.h */,
+			);
+			name = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		1DF8389F14F7D002007889F5 /* ASIWebPageRequest */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838A114F7D021007889F5 /* ASIWebPageRequest.h */,
+				1DF838A214F7D021007889F5 /* ASIWebPageRequest.m */,
+			);
+			name = ASIWebPageRequest;
+			sourceTree = "<group>";
+		};
+		1DF838A014F7D00D007889F5 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838A414F7D02E007889F5 /* Reachability.h */,
+				1DF838A514F7D02E007889F5 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		1DF838CE14F7D24F007889F5 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838CF14F7D260007889F5 /* JSONKit.h */,
+				1DF838D014F7D260007889F5 /* JSONKit.m */,
+				1DF838D114F7D260007889F5 /* README.html */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		1DF838D614F7D2AF007889F5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838D714F7D2B9007889F5 /* CommonDefines.h */,
+				DCB254EC14F8463A00444352 /* FCCService.h */,
+				DCB254ED14F8463A00444352 /* FCCService.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1DF838DA14F7D39C007889F5 /* COVE */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838DB14F7D3B2007889F5 /* BaseCOVEAPIDelegate.h */,
+				1DF838DC14F7D3B2007889F5 /* BaseCOVEAPIDelegate.m */,
+				1DF838DD14F7D3B2007889F5 /* COVEAPICategoryDelegate.h */,
+				1DF838DE14F7D3B2007889F5 /* COVEAPICategoryDelegate.m */,
+				1DF838DF14F7D3B2007889F5 /* COVEAPIEpisodeDelegate.h */,
+				1DF838E014F7D3B2007889F5 /* COVEAPIEpisodeDelegate.m */,
+				1DF838E114F7D3B2007889F5 /* COVEAPIGroupDelegate.h */,
+				1DF838E214F7D3B2007889F5 /* COVEAPIGroupDelegate.m */,
+				1DF838E314F7D3B2007889F5 /* COVEAPIProgramDelegate.h */,
+				1DF838E414F7D3B2007889F5 /* COVEAPIProgramDelegate.m */,
+				1DF838E514F7D3B2007889F5 /* COVECategory.h */,
+				1DF838E614F7D3B2007889F5 /* COVECategory.m */,
+				1DF838E714F7D3B2007889F5 /* COVEClientAPI.h */,
+				1DF838E814F7D3B2007889F5 /* COVEClientAPI.m */,
+				1DF838E914F7D3B2007889F5 /* COVEEpisode.h */,
+				1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */,
+				1DF838EB14F7D3B2007889F5 /* COVEProgram.h */,
+				1DF838EC14F7D3B2007889F5 /* COVEProgram.m */,
+			);
+			name = COVE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +593,10 @@
 			files = (
 				1DB1E22214F7842600C7D0DF /* InfoPlist.strings in Resources */,
 				1DB1E22B14F7842600C7D0DF /* MainStoryboard.storyboard in Resources */,
+				1DEC2F9D14F7B9D10038DBB6 /* SettingsViewController.xib in Resources */,
+				1DEC2FA414F7BAF20038DBB6 /* PBS-Logo.png in Resources */,
+				1DEC2FA614F7BB710038DBB6 /* Settings-icon.png in Resources */,
+				1DEC2FA814F7BC980038DBB6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +605,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DB1E24014F7842600C7D0DF /* InfoPlist.strings in Resources */,
+				1DF838D314F7D260007889F5 /* README.html in Resources */,
+				1DF8390914F7DDA7007889F5 /* mapOverlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,9 +633,76 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF838F614F7D3C3007889F5 /* BaseCOVEAPIDelegate.h in Sources */,
+				1DF838F714F7D3C4007889F5 /* BaseCOVEAPIDelegate.m in Sources */,
+				1DF838F814F7D3C4007889F5 /* COVEAPICategoryDelegate.h in Sources */,
+				1DF838F914F7D3C4007889F5 /* COVEAPICategoryDelegate.m in Sources */,
+				1DF838FA14F7D3C4007889F5 /* COVEAPIEpisodeDelegate.h in Sources */,
+				1DF838FB14F7D3C4007889F5 /* COVEAPIEpisodeDelegate.m in Sources */,
+				1DF838FC14F7D3C4007889F5 /* COVEAPIGroupDelegate.h in Sources */,
+				1DF838FD14F7D3C4007889F5 /* COVEAPIGroupDelegate.m in Sources */,
+				1DF838FE14F7D3C4007889F5 /* COVEAPIProgramDelegate.h in Sources */,
+				1DF838FF14F7D3C4007889F5 /* COVEAPIProgramDelegate.m in Sources */,
+				1DF8390014F7D3C4007889F5 /* COVECategory.h in Sources */,
+				1DF8390114F7D3C4007889F5 /* COVECategory.m in Sources */,
+				1DF8390214F7D3C4007889F5 /* COVEClientAPI.h in Sources */,
+				1DF8390314F7D3C4007889F5 /* COVEClientAPI.m in Sources */,
+				1DF8390414F7D3C4007889F5 /* COVEEpisode.h in Sources */,
+				1DF8390514F7D3C4007889F5 /* COVEEpisode.m in Sources */,
+				1DF8390614F7D3C4007889F5 /* COVEProgram.h in Sources */,
+				1DF8390714F7D3C4007889F5 /* COVEProgram.m in Sources */,
+				1DF838D414F7D270007889F5 /* JSONKit.h in Sources */,
+				1DF838D514F7D270007889F5 /* JSONKit.m in Sources */,
+				1DF838A714F7D03D007889F5 /* Reachability.h in Sources */,
+				1DF838A814F7D03D007889F5 /* Reachability.m in Sources */,
+				1DF838A914F7D03D007889F5 /* ASIWebPageRequest.h in Sources */,
+				1DF838AA14F7D03D007889F5 /* ASIWebPageRequest.m in Sources */,
+				1DF838AB14F7D03D007889F5 /* ASIAuthenticationDialog.h in Sources */,
+				1DF838AC14F7D03D007889F5 /* ASIAuthenticationDialog.m in Sources */,
+				1DF838AD14F7D03D007889F5 /* ASICacheDelegate.h in Sources */,
+				1DF838AE14F7D03D007889F5 /* ASIDataCompressor.h in Sources */,
+				1DF838AF14F7D03D007889F5 /* ASIDataCompressor.m in Sources */,
+				1DF838B014F7D03D007889F5 /* ASIDataDecompressor.h in Sources */,
+				1DF838B114F7D03D007889F5 /* ASIDataDecompressor.m in Sources */,
+				1DF838B214F7D03D007889F5 /* ASIDownloadCache.h in Sources */,
+				1DF838B314F7D03D007889F5 /* ASIDownloadCache.m in Sources */,
+				1DF838B414F7D03D007889F5 /* ASIFormDataRequest.h in Sources */,
+				1DF838B514F7D03D007889F5 /* ASIFormDataRequest.m in Sources */,
+				1DF838B614F7D03D007889F5 /* ASIHTTPRequest.h in Sources */,
+				1DF838B714F7D03D007889F5 /* ASIHTTPRequest.m in Sources */,
+				1DF838B814F7D03D007889F5 /* ASIHTTPRequestConfig.h in Sources */,
+				1DF838B914F7D03D007889F5 /* ASIHTTPRequestDelegate.h in Sources */,
+				1DF838BA14F7D03D007889F5 /* ASIInputStream.h in Sources */,
+				1DF838BB14F7D03D007889F5 /* ASIInputStream.m in Sources */,
+				1DF838BC14F7D03D007889F5 /* ASINetworkQueue.h in Sources */,
+				1DF838BD14F7D03D007889F5 /* ASINetworkQueue.m in Sources */,
+				1DF838BE14F7D03D007889F5 /* ASIProgressDelegate.h in Sources */,
+				1DF8386C14F7CF89007889F5 /* BaseDTVAPIDelegate.h in Sources */,
+				1DF8386D14F7CF89007889F5 /* BaseDTVAPIDelegate.m in Sources */,
+				1DF8386E14F7CF89007889F5 /* DTVAirdate.h in Sources */,
+				1DF8386F14F7CF89007889F5 /* DTVAirdate.m in Sources */,
+				1DF8387014F7CF89007889F5 /* DTVAPIAirdateDelegate.h in Sources */,
+				1DF8387114F7CF89007889F5 /* DTVAPIAirdateDelegate.m in Sources */,
+				1DF8387214F7CF89007889F5 /* DTVAPIFeedDelegate.h in Sources */,
+				1DF8387314F7CF89007889F5 /* DTVAPIFeedDelegate.m in Sources */,
+				1DF8387414F7CF89007889F5 /* DTVAPIHeadendDelegate.h in Sources */,
+				1DF8387514F7CF89007889F5 /* DTVAPIHeadendDelegate.m in Sources */,
+				1DF8387614F7CF89007889F5 /* DTVAPIProgramDelegate.h in Sources */,
+				1DF8387714F7CF89007889F5 /* DTVAPIProgramDelegate.m in Sources */,
+				1DF8387814F7CF89007889F5 /* DTVAPIStationDelegate.h in Sources */,
+				1DF8387914F7CF89007889F5 /* DTVAPIStationDelegate.m in Sources */,
+				1DF8387A14F7CF89007889F5 /* DTVClientAPI.h in Sources */,
+				1DF8387B14F7CF89007889F5 /* DTVClientAPI.m in Sources */,
+				1DF8387C14F7CF89007889F5 /* DTVFeed.h in Sources */,
+				1DF8387D14F7CF89007889F5 /* DTVFeed.m in Sources */,
+				1DF8387E14F7CF89007889F5 /* DTVHeadend.h in Sources */,
+				1DF8387F14F7CF89007889F5 /* DTVHeadend.m in Sources */,
+				1DF8388014F7CF89007889F5 /* DTVStation.h in Sources */,
+				1DF8388114F7CF89007889F5 /* DTVStation.m in Sources */,
 				1DB1E22414F7842600C7D0DF /* main.m in Sources */,
 				1DB1E22814F7842600C7D0DF /* AppDelegate.m in Sources */,
-				1DB1E22E14F7842600C7D0DF /* ViewController.m in Sources */,
+				1DB1E22E14F7842600C7D0DF /* MapViewController.m in Sources */,
+				DCB254EE14F8463A00444352 /* FCCService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +711,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DB1E24314F7842600C7D0DF /* MapMashupTests.m in Sources */,
+				1DF8386114F7CF4F007889F5 /* BaseDTVAPIDelegate.m in Sources */,
+				1DF8386214F7CF4F007889F5 /* DTVAirdate.m in Sources */,
+				1DF8386314F7CF4F007889F5 /* DTVAPIAirdateDelegate.m in Sources */,
+				1DF8386414F7CF4F007889F5 /* DTVAPIFeedDelegate.m in Sources */,
+				1DF8386514F7CF4F007889F5 /* DTVAPIHeadendDelegate.m in Sources */,
+				1DF8386614F7CF4F007889F5 /* DTVAPIProgramDelegate.m in Sources */,
+				1DF8386714F7CF4F007889F5 /* DTVAPIStationDelegate.m in Sources */,
+				1DF8386814F7CF4F007889F5 /* DTVClientAPI.m in Sources */,
+				1DF8386914F7CF4F007889F5 /* DTVFeed.m in Sources */,
+				1DF8386A14F7CF4F007889F5 /* DTVHeadend.m in Sources */,
+				1DF8386B14F7CF4F007889F5 /* DTVStation.m in Sources */,
+				1DF8389714F7CFF9007889F5 /* ASIAuthenticationDialog.m in Sources */,
+				1DF8389814F7CFF9007889F5 /* ASIDataCompressor.m in Sources */,
+				1DF8389914F7CFF9007889F5 /* ASIDataDecompressor.m in Sources */,
+				1DF8389A14F7CFF9007889F5 /* ASIDownloadCache.m in Sources */,
+				1DF8389B14F7CFF9007889F5 /* ASIFormDataRequest.m in Sources */,
+				1DF8389C14F7CFF9007889F5 /* ASIHTTPRequest.m in Sources */,
+				1DF8389D14F7CFF9007889F5 /* ASIInputStream.m in Sources */,
+				1DF8389E14F7CFF9007889F5 /* ASINetworkQueue.m in Sources */,
+				1DF838A314F7D022007889F5 /* ASIWebPageRequest.m in Sources */,
+				1DF838A614F7D02E007889F5 /* Reachability.m in Sources */,
+				1DF838D214F7D260007889F5 /* JSONKit.m in Sources */,
+				1DF838ED14F7D3B2007889F5 /* BaseCOVEAPIDelegate.m in Sources */,
+				1DF838EE14F7D3B2007889F5 /* COVEAPICategoryDelegate.m in Sources */,
+				1DF838EF14F7D3B2007889F5 /* COVEAPIEpisodeDelegate.m in Sources */,
+				1DF838F014F7D3B2007889F5 /* COVEAPIGroupDelegate.m in Sources */,
+				1DF838F114F7D3B2007889F5 /* COVEAPIProgramDelegate.m in Sources */,
+				1DF838F214F7D3B2007889F5 /* COVECategory.m in Sources */,
+				1DF838F314F7D3B2007889F5 /* COVEClientAPI.m in Sources */,
+				1DF838F414F7D3B2007889F5 /* COVEEpisode.m in Sources */,
+				1DF838F514F7D3B2007889F5 /* COVEProgram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +835,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MapMashup/MapMashup-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "MapMashup/MapMashup-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -372,6 +847,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MapMashup/MapMashup-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "MapMashup/MapMashup-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -431,6 +907,7 @@
 				1DB1E24814F7842600C7D0DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DB1E24914F7842600C7D0DF /* Build configuration list for PBXNativeTarget "MapMashupTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +916,7 @@
 				1DB1E24B14F7842600C7D0DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
