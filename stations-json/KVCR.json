@@ -2,7 +2,9 @@
 	"callsign": "KVCR",
 	"towerCoordinates": [33.965850,-117.285597],
 	"polygonBounds" : [[31.27372,-120.53838],[36.65798,-114.03281]],
-	"broadcastOverlay" : "KVCR-DT_0_D_31.27372x-120.53838x36.65798x-114.03281.png",
+	"broadcastOverlay" : "Khttp://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/VCR-DT_0_D_31.27372x-120.53838x36.65798x-114.03281.png",
+	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KVCR.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0xff8000.gif",
 	"stationColor": "0xff8000",
 	"polygonCoordinatesArray": [
 		[34.985610,-117.263870],

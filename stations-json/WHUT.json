@@ -2,7 +2,9 @@
 	"callsign": "WHUT",
 	"towerCoordinates": [38.950388, -77.079422],
 	"polygonBounds" : [[36.25901,-80.54933],[41.64177,-73.60951]],
-	"broadcastOverlay" : "WHUT-DT_0_D_36.25901x-80.54933x41.64177x-73.60951.png",
+	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/WHUT-DT_0_D_36.25901x-80.54933x41.64177x-73.60951.png",
+	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/WHUT.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0x0000ff.gif",
 	"stationColor": "0x0000ff",
 	"polygonCoordinatesArray": [
 		[39.597560,-77.064760],
