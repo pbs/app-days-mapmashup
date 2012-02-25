@@ -1,5 +1,5 @@
 //
-//  FCCService.h
+//  StationAnnotation.h
 //  MapMashup
 //
 //  Created by Rares Zehan on 2/25/12.
@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequestDelegate.h"
+#import <MapKit/MapKit.h>
 
-@interface FCCService : NSObject
-
-- (void)downloadFCCData:(NSString *)stationName delegate:(id)delegate;
+@interface StationAnnotation : NSObject<MKAnnotation>
 
 @end

@@ -9,30 +9,22 @@
 #import "FCCService.h"
 #import "ASIHTTPRequest.h"
 
-#define FCC_DATA_URL @""
+#define FCC_DATA_URL @"http://192.168.1.148/~rareszehan/map-mashup/stations-json/"
 
 @implementation FCCService
 
-@synthesize delegate;
-
-
-- (void)downloadFCCData:(NSString *)stationName {
-    NSString* urlString = [NSString stringWithFormat:@"%@%@", FCC_DATA_URL, stationName];
-	//NSLog(@"url: %@", urlString);
+- (void)downloadFCCData:(NSString *)stationName delegate:(id)delegate {
+    NSString* urlString = [NSString stringWithFormat:@"%@%@.json", FCC_DATA_URL, stationName];
+	NSLog(@"url: %@", urlString);
 	NSURL* url = [NSURL URLWithString:urlString];
 	
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setCachePolicy:ASIAskServerIfModifiedCachePolicy];
-	[request setSecondsToCache:CACHE_TIME_JSON];
+	[request setSecondsToCache:120];
 	[request setCacheStoragePolicy:ASICachePermanentlyCacheStoragePolicy];
-    [self.requests addObject:request];
-	BaseDTVAPIDelegate* apiDelegate = [[DTVAPIHeadendDelegate alloc] init];
-	apiDelegate.delegate = delegate;
-    apiDelegate.client = self;
-	request.delegate = apiDelegate;
-    [dtvApiDelegates addObject:apiDelegate];
-    [apiDelegate release];
-	[request startAsynchronous];
+    
+	request.delegate = delegate;
+    [request startAsynchronous];
 }
 
 @end

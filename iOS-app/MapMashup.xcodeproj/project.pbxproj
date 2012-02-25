@@ -129,8 +129,12 @@
 		1DF8390514F7D3C4007889F5 /* COVEEpisode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DF8390614F7D3C4007889F5 /* COVEProgram.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EB14F7D3B2007889F5 /* COVEProgram.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DF8390714F7D3C4007889F5 /* COVEProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EC14F7D3B2007889F5 /* COVEProgram.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1DF8390914F7DDA7007889F5 /* mapOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF8390814F7DDA7007889F5 /* mapOverlay.png */; };
 		DCB254EE14F8463A00444352 /* FCCService.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB254ED14F8463A00444352 /* FCCService.m */; };
+		DCB2550114F8511D00444352 /* WETA.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB254FE14F8511D00444352 /* WETA.json */; };
+		DCB2550214F8511D00444352 /* WHUT.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB254FF14F8511D00444352 /* WHUT.json */; };
+		DCB2550314F8511D00444352 /* WMPB.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB2550014F8511D00444352 /* WMPB.json */; };
+		DCB2550614F854A500444352 /* GraphicalStation.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2550514F854A500444352 /* GraphicalStation.m */; };
+		DCB2550914F8653F00444352 /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2550814F8653E00444352 /* StationAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,9 +246,15 @@
 		1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEEpisode.m; sourceTree = "<group>"; };
 		1DF838EB14F7D3B2007889F5 /* COVEProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEProgram.h; sourceTree = "<group>"; };
 		1DF838EC14F7D3B2007889F5 /* COVEProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEProgram.m; sourceTree = "<group>"; };
-		1DF8390814F7DDA7007889F5 /* mapOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapOverlay.png; sourceTree = "<group>"; };
 		DCB254EC14F8463A00444352 /* FCCService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCService.h; sourceTree = "<group>"; };
 		DCB254ED14F8463A00444352 /* FCCService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCService.m; sourceTree = "<group>"; };
+		DCB254FE14F8511D00444352 /* WETA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WETA.json; sourceTree = "<group>"; };
+		DCB254FF14F8511D00444352 /* WHUT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WHUT.json; sourceTree = "<group>"; };
+		DCB2550014F8511D00444352 /* WMPB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WMPB.json; sourceTree = "<group>"; };
+		DCB2550414F854A500444352 /* GraphicalStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicalStation.h; sourceTree = "<group>"; };
+		DCB2550514F854A500444352 /* GraphicalStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicalStation.m; sourceTree = "<group>"; };
+		DCB2550714F8653E00444352 /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
+		DCB2550814F8653E00444352 /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,10 +333,16 @@
 				1DF8384714F7CF15007889F5 /* Common */,
 				1DB1E22614F7842600C7D0DF /* AppDelegate.h */,
 				1DB1E22714F7842600C7D0DF /* AppDelegate.m */,
+				DCB254EC14F8463A00444352 /* FCCService.h */,
+				DCB254ED14F8463A00444352 /* FCCService.m */,
 				1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */,
 				1DB1E22C14F7842600C7D0DF /* MapViewController.h */,
 				1DB1E22D14F7842600C7D0DF /* MapViewController.m */,
+				DCB2550414F854A500444352 /* GraphicalStation.h */,
+				DCB2550514F854A500444352 /* GraphicalStation.m */,
 				1DB1E21E14F7842600C7D0DF /* Supporting Files */,
+				DCB2550714F8653E00444352 /* StationAnnotation.h */,
+				DCB2550814F8653E00444352 /* StationAnnotation.m */,
 			);
 			path = MapMashup;
 			sourceTree = "<group>";
@@ -334,6 +350,7 @@
 		1DB1E21E14F7842600C7D0DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DCB254FC14F8510300444352 /* jsons */,
 				1DEC2FA214F7BAC80038DBB6 /* images */,
 				1DEC2F9A14F7B9B90038DBB6 /* xibs */,
 				1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */,
@@ -375,7 +392,6 @@
 		1DEC2FA214F7BAC80038DBB6 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				1DF8390814F7DDA7007889F5 /* mapOverlay.png */,
 				1DEC2FA514F7BB710038DBB6 /* Settings-icon.png */,
 				1DEC2FA314F7BAF20038DBB6 /* PBS-Logo.png */,
 			);
@@ -490,8 +506,6 @@
 			isa = PBXGroup;
 			children = (
 				1DF838D714F7D2B9007889F5 /* CommonDefines.h */,
-				DCB254EC14F8463A00444352 /* FCCService.h */,
-				DCB254ED14F8463A00444352 /* FCCService.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -519,6 +533,16 @@
 				1DF838EC14F7D3B2007889F5 /* COVEProgram.m */,
 			);
 			name = COVE;
+			sourceTree = "<group>";
+		};
+		DCB254FC14F8510300444352 /* jsons */ = {
+			isa = PBXGroup;
+			children = (
+				DCB254FE14F8511D00444352 /* WETA.json */,
+				DCB254FF14F8511D00444352 /* WHUT.json */,
+				DCB2550014F8511D00444352 /* WMPB.json */,
+			);
+			name = jsons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,6 +621,9 @@
 				1DEC2FA414F7BAF20038DBB6 /* PBS-Logo.png in Resources */,
 				1DEC2FA614F7BB710038DBB6 /* Settings-icon.png in Resources */,
 				1DEC2FA814F7BC980038DBB6 /* Localizable.strings in Resources */,
+				DCB2550114F8511D00444352 /* WETA.json in Resources */,
+				DCB2550214F8511D00444352 /* WHUT.json in Resources */,
+				DCB2550314F8511D00444352 /* WMPB.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +633,6 @@
 			files = (
 				1DB1E24014F7842600C7D0DF /* InfoPlist.strings in Resources */,
 				1DF838D314F7D260007889F5 /* README.html in Resources */,
-				1DF8390914F7DDA7007889F5 /* mapOverlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +729,8 @@
 				1DB1E22814F7842600C7D0DF /* AppDelegate.m in Sources */,
 				1DB1E22E14F7842600C7D0DF /* MapViewController.m in Sources */,
 				DCB254EE14F8463A00444352 /* FCCService.m in Sources */,
+				DCB2550614F854A500444352 /* GraphicalStation.m in Sources */,
+				DCB2550914F8653F00444352 /* StationAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

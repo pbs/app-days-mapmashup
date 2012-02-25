@@ -8,12 +8,19 @@
 
 #import "MapViewController.h"
 #import "DTVClientAPI.h"
-//#import "SettingsViewController.h"
+#import "FCCService.h"
+#import "JSONKit.h"
+#import "GraphicalStation.h"
+#import "StationAnnotation.h"
 
 //washington dc : 38.8613, -77.0567
 
 @interface MapViewController ()
+
 @property (strong, nonatomic) DTVClientAPI* dtvAPI;
+
+- (void)addGrapicalStationOnMap:(GraphicalStation *)station;
+
 @end
 
 @implementation MapViewController
@@ -62,8 +69,8 @@
 - (void)mapView:(MKMapView *)currentMapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     MKCoordinateRegion region;
 	region.center = userLocation.location.coordinate;
-    region.span.latitudeDelta = 0.2;
-    region.span.longitudeDelta = 0.2;
+    region.span.latitudeDelta = 1.5;
+    region.span.longitudeDelta = 1.5;
     [self.mapView setRegion:region];
     
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
@@ -80,21 +87,53 @@
 	return annView;
 }
 
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id )overlay{
+    if([overlay isKindOfClass:[MKPolygon class]]){
+        MKPolygonView *view = [[MKPolygonView alloc] initWithOverlay:overlay];
+        view.lineWidth=1;
+        view.strokeColor=[UIColor blueColor];
+        view.fillColor=[[UIColor blueColor] colorWithAlphaComponent:0.5];
+        return view;
+    }
+    return nil;
+}
+
 #pragma mark - DTV API Delegate
 - (void) didFindResults:(NSArray*) results {
 	NSLog(@"stationsFoundArray=%@", results);
+    FCCService *fccService = [[FCCService alloc] init];
     
-    for (NSString *stationName in results) {
-        
-        NSLog(@"%@", stationName);
-        
-        if ([@"WETA" isEqualToString:stationName]) {
-            NSLog(@"found weta");
-        }
+    for (NSString *stationName in results) {        
+        [fccService downloadFCCData:stationName delegate:self];
     }
 }
 
-- (void) didFail:(NSError*) error {
+#pragma mark - ASIHTTPRequest Delegate
+
+- (void)requestFinished:(ASIHTTPRequest *)request {
+    NSDictionary *stationsFCCArray = [[request responseData] objectFromJSONData];
+    [self addGrapicalStationOnMap:[GraphicalStation stationFromDictionary:stationsFCCArray]];
+}
+
+#pragma mark - private methods
+- (void)addGrapicalStationOnMap:(GraphicalStation *)station {
+    
+    NSLog(@"graphical stations's callsign = %@", station.polygonCoordinatesArray);
+    
+    int numberOfPoints = station.polygonCoordinatesArray.count;
+    CLLocationCoordinate2D polygonCoordinates[numberOfPoints];
+    int i = 0;
+    
+    for (NSArray *coordinateArray in station.polygonCoordinatesArray) {
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[coordinateArray objectAtIndex:0] doubleValue], [[coordinateArray objectAtIndex:1] doubleValue]);
+        polygonCoordinates[i++] = coordinate;
+    }
+    
+    MKPolygon *polygon = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
+    [self.mapView addOverlay:polygon];
+    
+    StationAnnotation *stationAnnotation = [[StationAnnotation alloc] init];
+    [self.mapView addAnnotation:stationAnnotation];
 }
 
 
