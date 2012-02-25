@@ -12,12 +12,13 @@
 #import "JSONKit.h"
 #import "GraphicalStation.h"
 #import "StationAnnotation.h"
-
-//washington dc : 38.8613, -77.0567
+#import "MKPolygon+ColorExtension.h"
+#import "UIColor+RGBHexExtension.h"
 
 @interface MapViewController ()
 
 @property (strong, nonatomic) DTVClientAPI* dtvAPI;
+@property (strong, nonatomic) NSMutableDictionary *polygonsDictionary;
 
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station;
 
@@ -28,6 +29,7 @@
 @synthesize mapView;
 @synthesize currentLocation;
 @synthesize dtvAPI;
+@synthesize polygonsDictionary;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,11 +38,11 @@
     self.dtvAPI.delegate = self;
     
     
-//    MKOverlayView *overlay = [[MKOverlayView alloc] init];
-//    overlay.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mapOverlay.png"]];
-//    [self.mapView addOverlay:overlay.overlay];
+    //    MKOverlayView *overlay = [[MKOverlayView alloc] init];
+    //    overlay.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mapOverlay.png"]];
+    //    [self.mapView addOverlay:overlay.overlay];
 }
-    
+
 - (void)viewDidUnload {
     [self setMapView:nil];
     [super viewDidUnload];
@@ -83,16 +85,38 @@
 }
 
 - (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation{
-	MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
-	return annView;
+    
+    if ([annotation isKindOfClass:[StationAnnotation class]])   // for stations
+    {
+        static NSString* StationAnnotationIdentifier = @"StationAnnotationIdentifier";
+        MKPinAnnotationView* pinView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:StationAnnotationIdentifier];
+
+        if (!pinView)
+        {
+            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:StationAnnotationIdentifier];
+//            annotationView.canShowCallout = YES;
+            UIImage *stationImage = [UIImage imageNamed:@"station_tower_0x00ff00.gif"];
+            annotationView.image = stationImage;
+            annotationView.opaque = NO;
+            return annotationView;
+        } 
+    } else {
+        MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
+        return annView;
+    }
+    return nil;
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id )overlay{
-    if([overlay isKindOfClass:[MKPolygon class]]){
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay {
+    
+    NSLog(@"overlay class: %@", [overlay class]);
+    
+    if([overlay isKindOfClass:[MKPolygon class]]) {
+        MKPolygon *signalOverlay = overlay;
         MKPolygonView *view = [[MKPolygonView alloc] initWithOverlay:overlay];
-        view.lineWidth=1;
-        view.strokeColor=[UIColor blueColor];
-        view.fillColor=[[UIColor blueColor] colorWithAlphaComponent:0.5];
+        view.lineWidth=2;
+        view.strokeColor=signalOverlay.polygonColor;
+        view.fillColor=[signalOverlay.polygonColor colorWithAlphaComponent:0.4];
         return view;
     }
     return nil;
@@ -100,12 +124,19 @@
 
 #pragma mark - DTV API Delegate
 - (void) didFindResults:(NSArray*) results {
-	NSLog(@"stationsFoundArray=%@", results);
+    NSLog(@"stationsFoundArray=%@", results);
     FCCService *fccService = [[FCCService alloc] init];
     
     for (NSString *stationName in results) {        
         [fccService downloadFCCData:stationName delegate:self];
     }
+}
+
+- (void)didFail:(NSError *)error {
+    NSLog(@"request failed, reason: %@", error.localizedDescription);
+    FCCService *fccService = [[FCCService alloc] init];
+    [fccService downloadFCCData:@"WMPB" delegate:self];
+    [fccService downloadFCCData:@"WHUT" delegate:self];
 }
 
 #pragma mark - ASIHTTPRequest Delegate
@@ -129,12 +160,18 @@
         polygonCoordinates[i++] = coordinate;
     }
     
-    MKPolygon *polygon = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
-    [self.mapView addOverlay:polygon];
+    MKPolygon *stationSignalOverlay = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
+    stationSignalOverlay.polygonColor = [UIColor colorFromHexString:station.stationColorRGBValue];
+    [self.mapView addOverlay:stationSignalOverlay];
     
-    StationAnnotation *stationAnnotation = [[StationAnnotation alloc] init];
+    CLLocationDegrees stationLatitude = [[station.towerCoordinates objectAtIndex:0] doubleValue];
+    CLLocationDegrees stationLongitude = [[station.towerCoordinates objectAtIndex:1] doubleValue];
+    CLLocationCoordinate2D stationCoordinate = CLLocationCoordinate2DMake(stationLatitude, stationLongitude);
+    
+    StationAnnotation *stationAnnotation = [StationAnnotation initStationAnnotationWithCoordinate:stationCoordinate andTitle:station.callsign];
+//    stationAnnotation.stationImage = UIImage imageNamed:@"";
     [self.mapView addAnnotation:stationAnnotation];
 }
-
-
+                                            
+                                            
 @end

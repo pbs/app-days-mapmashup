@@ -93,7 +93,7 @@ static NSString* dtvApiKey;
 
 - (void) getStationsForZip:(NSString*) zip {
 	NSString* urlString = [NSString stringWithFormat:@"%@stationFinder/getStationsByZip?zipcode=%@&apikey=%@", dtvApiURL, zip, dtvApiKey];
-	//NSLog(@"url: %@", urlString);
+	NSLog(@"url: %@", urlString);
 	NSURL* url = [NSURL URLWithString:urlString];
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setCachePolicy:ASIAskServerIfModifiedCachePolicy];

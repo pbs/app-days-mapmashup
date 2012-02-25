@@ -11,10 +11,25 @@
 @implementation StationAnnotation
 
 @synthesize coordinate;
+@synthesize stationImage;
+@synthesize stationTitle;
 
--(id)initWithCoordinate:(CLLocationCoordinate2D) newCoordinate {
-	self.coordinate = newCoordinate;
-	return self;
++ (StationAnnotation *) initStationAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate andTitle:(NSString *) title {
+    StationAnnotation *annotation = [[StationAnnotation alloc] init];
+    annotation.coordinate = coordinate;
+    annotation.stationTitle = title;
+    return annotation;
+}
+
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
+    coordinate = newCoordinate;
+}
+
++ (StationAnnotation *)stationAnnotationFromGraphicalStation:(GraphicalStation *)graphicalStation {
+//    StationAnnotation *annotation = [[StationAnnotation alloc] init];
+//    annotation.coordinate = coordinate;
+//    annotation.stationTitle = title;
+//    return annotation;
 }
 
 @end
