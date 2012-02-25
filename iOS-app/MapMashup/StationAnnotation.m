@@ -7,6 +7,7 @@
 //
 
 #import "StationAnnotation.h"
+#import "GraphicalStation.h"
 
 @implementation StationAnnotation
 
@@ -14,22 +15,20 @@
 @synthesize stationImage;
 @synthesize stationTitle;
 
-+ (StationAnnotation *) initStationAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate andTitle:(NSString *) title {
-    StationAnnotation *annotation = [[StationAnnotation alloc] init];
-    annotation.coordinate = coordinate;
-    annotation.stationTitle = title;
-    return annotation;
-}
-
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
     coordinate = newCoordinate;
 }
 
 + (StationAnnotation *)stationAnnotationFromGraphicalStation:(GraphicalStation *)graphicalStation {
-//    StationAnnotation *annotation = [[StationAnnotation alloc] init];
-//    annotation.coordinate = coordinate;
-//    annotation.stationTitle = title;
-//    return annotation;
+    
+    CLLocationDegrees stationLatitude = [[graphicalStation.towerCoordinates objectAtIndex:0] doubleValue];
+    CLLocationDegrees stationLongitude = [[graphicalStation.towerCoordinates objectAtIndex:1] doubleValue];
+    CLLocationCoordinate2D stationCoordinate = CLLocationCoordinate2DMake(stationLatitude, stationLongitude);
+    StationAnnotation *annotation = [[StationAnnotation alloc] init];
+    annotation.coordinate = stationCoordinate;
+    annotation.stationTitle = graphicalStation.callsign;
+    annotation.stationImage = [UIImage imageNamed:@"station_tower_0x0000ff.gif"];
+    return annotation;
 }
 
 @end

@@ -18,7 +18,6 @@
 @synthesize towerImageURLString;
 
 + (GraphicalStation *) stationFromDictionary:(NSDictionary *)dictionary {
-    NSLog(@"dict = %@", dictionary);
     GraphicalStation *station = [[GraphicalStation alloc] init];
     
     station.callsign = [dictionary objectForKey:@"callsign"];

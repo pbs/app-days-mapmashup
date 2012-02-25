@@ -14,7 +14,7 @@
 		1DB1E22414F7842600C7D0DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22314F7842600C7D0DF /* main.m */; };
 		1DB1E22814F7842600C7D0DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22714F7842600C7D0DF /* AppDelegate.m */; };
 		1DB1E22B14F7842600C7D0DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */; };
-		1DB1E22E14F7842600C7D0DF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22D14F7842600C7D0DF /* MapViewController.m */; };
+		1DB1E22E14F7842600C7D0DF /* MapMashupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E22D14F7842600C7D0DF /* MapMashupViewController.m */; };
 		1DB1E23614F7842600C7D0DF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E23514F7842600C7D0DF /* SenTestingKit.framework */; };
 		1DB1E23714F7842600C7D0DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21714F7842600C7D0DF /* UIKit.framework */; };
 		1DB1E23814F7842600C7D0DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21914F7842600C7D0DF /* Foundation.framework */; };
@@ -132,6 +132,8 @@
 		DC40FF1714F91EF8000F9281 /* MKPolygon+ColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC40FF1614F91EF8000F9281 /* MKPolygon+ColorExtension.m */; };
 		DC40FF2214F929B0000F9281 /* UIColor+RGBHexExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC40FF2114F929B0000F9281 /* UIColor+RGBHexExtension.m */; };
 		DC40FF2814F92DD5000F9281 /* station_tower_0x00ff00.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC40FF2714F92DD4000F9281 /* station_tower_0x00ff00.gif */; };
+		DC40FF2A14F93898000F9281 /* station_tower_0xff0000.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC40FF2914F93898000F9281 /* station_tower_0xff0000.gif */; };
+		DC40FF2C14F93A58000F9281 /* station_tower_0x0000ff.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC40FF2B14F93A58000F9281 /* station_tower_0x0000ff.gif */; };
 		DCB254EE14F8463A00444352 /* FCCService.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB254ED14F8463A00444352 /* FCCService.m */; };
 		DCB2550114F8511D00444352 /* WETA.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB254FE14F8511D00444352 /* WETA.json */; };
 		DCB2550214F8511D00444352 /* WHUT.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB254FF14F8511D00444352 /* WHUT.json */; };
@@ -162,8 +164,8 @@
 		1DB1E22614F7842600C7D0DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DB1E22714F7842600C7D0DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1DB1E22A14F7842600C7D0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		1DB1E22C14F7842600C7D0DF /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		1DB1E22D14F7842600C7D0DF /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1DB1E22C14F7842600C7D0DF /* MapMashupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapMashupViewController.h; sourceTree = "<group>"; };
+		1DB1E22D14F7842600C7D0DF /* MapMashupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMashupViewController.m; sourceTree = "<group>"; };
 		1DB1E23414F7842600C7D0DF /* MapMashupTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapMashupTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB1E23514F7842600C7D0DF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1DB1E23D14F7842600C7D0DF /* MapMashupTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapMashupTests-Info.plist"; sourceTree = "<group>"; };
@@ -254,6 +256,8 @@
 		DC40FF2014F929B0000F9281 /* UIColor+RGBHexExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBHexExtension.h"; sourceTree = "<group>"; };
 		DC40FF2114F929B0000F9281 /* UIColor+RGBHexExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBHexExtension.m"; sourceTree = "<group>"; };
 		DC40FF2714F92DD4000F9281 /* station_tower_0x00ff00.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = station_tower_0x00ff00.gif; sourceTree = "<group>"; };
+		DC40FF2914F93898000F9281 /* station_tower_0xff0000.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = station_tower_0xff0000.gif; sourceTree = "<group>"; };
+		DC40FF2B14F93A58000F9281 /* station_tower_0x0000ff.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = station_tower_0x0000ff.gif; sourceTree = "<group>"; };
 		DCB254EC14F8463A00444352 /* FCCService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCService.h; sourceTree = "<group>"; };
 		DCB254ED14F8463A00444352 /* FCCService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCService.m; sourceTree = "<group>"; };
 		DCB254FE14F8511D00444352 /* WETA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WETA.json; sourceTree = "<group>"; };
@@ -336,24 +340,8 @@
 		1DB1E21D14F7842600C7D0DF /* MapMashup */ = {
 			isa = PBXGroup;
 			children = (
-				1DF838CE14F7D24F007889F5 /* JSONKit */,
-				1DF8388214F7CFE8007889F5 /* ASIHTTPRequest */,
-				1DF8384714F7CF15007889F5 /* Common */,
-				1DB1E22614F7842600C7D0DF /* AppDelegate.h */,
-				1DB1E22714F7842600C7D0DF /* AppDelegate.m */,
-				DCB254EC14F8463A00444352 /* FCCService.h */,
-				DCB254ED14F8463A00444352 /* FCCService.m */,
-				1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */,
-				1DB1E22C14F7842600C7D0DF /* MapViewController.h */,
-				1DB1E22D14F7842600C7D0DF /* MapViewController.m */,
-				DCB2550414F854A500444352 /* GraphicalStation.h */,
-				DCB2550514F854A500444352 /* GraphicalStation.m */,
-				DCB2550714F8653E00444352 /* StationAnnotation.h */,
-				DCB2550814F8653E00444352 /* StationAnnotation.m */,
-				DC40FF1514F91EF8000F9281 /* MKPolygon+ColorExtension.h */,
-				DC40FF1614F91EF8000F9281 /* MKPolygon+ColorExtension.m */,
-				DC40FF2014F929B0000F9281 /* UIColor+RGBHexExtension.h */,
-				DC40FF2114F929B0000F9281 /* UIColor+RGBHexExtension.m */,
+				DC40FF2E14F945BD000F9281 /* Classes */,
+				DC40FF2D14F945B4000F9281 /* Libs */,
 				1DB1E21E14F7842600C7D0DF /* Supporting Files */,
 			);
 			path = MapMashup;
@@ -365,6 +353,7 @@
 				DCB254FC14F8510300444352 /* jsons */,
 				1DEC2FA214F7BAC80038DBB6 /* images */,
 				1DEC2F9A14F7B9B90038DBB6 /* xibs */,
+				1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */,
 				1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */,
 				1DB1E22014F7842600C7D0DF /* InfoPlist.strings */,
 				1DB1E22314F7842600C7D0DF /* main.m */,
@@ -404,6 +393,8 @@
 		1DEC2FA214F7BAC80038DBB6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DC40FF2B14F93A58000F9281 /* station_tower_0x0000ff.gif */,
+				DC40FF2914F93898000F9281 /* station_tower_0xff0000.gif */,
 				DC40FF2714F92DD4000F9281 /* station_tower_0x00ff00.gif */,
 				1DEC2FA514F7BB710038DBB6 /* Settings-icon.png */,
 				1DEC2FA314F7BAF20038DBB6 /* PBS-Logo.png */,
@@ -548,6 +539,61 @@
 			name = COVE;
 			sourceTree = "<group>";
 		};
+		DC40FF2D14F945B4000F9281 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				1DF838CE14F7D24F007889F5 /* JSONKit */,
+				1DF8388214F7CFE8007889F5 /* ASIHTTPRequest */,
+				1DF8384714F7CF15007889F5 /* Common */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		DC40FF2E14F945BD000F9281 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DC40FF3214F9464E000F9281 /* Views */,
+				DC40FF3114F9463B000F9281 /* Model */,
+				DC40FF2F14F945F8000F9281 /* Categories */,
+				1DB1E22614F7842600C7D0DF /* AppDelegate.h */,
+				1DB1E22714F7842600C7D0DF /* AppDelegate.m */,
+				1DB1E22C14F7842600C7D0DF /* MapMashupViewController.h */,
+				1DB1E22D14F7842600C7D0DF /* MapMashupViewController.m */,
+				DCB254EC14F8463A00444352 /* FCCService.h */,
+				DCB254ED14F8463A00444352 /* FCCService.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		DC40FF2F14F945F8000F9281 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DC40FF1514F91EF8000F9281 /* MKPolygon+ColorExtension.h */,
+				DC40FF1614F91EF8000F9281 /* MKPolygon+ColorExtension.m */,
+				DC40FF2014F929B0000F9281 /* UIColor+RGBHexExtension.h */,
+				DC40FF2114F929B0000F9281 /* UIColor+RGBHexExtension.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		DC40FF3114F9463B000F9281 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DCB2550414F854A500444352 /* GraphicalStation.h */,
+				DCB2550514F854A500444352 /* GraphicalStation.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DC40FF3214F9464E000F9281 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DCB2550714F8653E00444352 /* StationAnnotation.h */,
+				DCB2550814F8653E00444352 /* StationAnnotation.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		DCB254FC14F8510300444352 /* jsons */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +684,8 @@
 				DCB2550214F8511D00444352 /* WHUT.json in Resources */,
 				DCB2550314F8511D00444352 /* WMPB.json in Resources */,
 				DC40FF2814F92DD5000F9281 /* station_tower_0x00ff00.gif in Resources */,
+				DC40FF2A14F93898000F9281 /* station_tower_0xff0000.gif in Resources */,
+				DC40FF2C14F93A58000F9281 /* station_tower_0x0000ff.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +789,7 @@
 				1DF8388114F7CF89007889F5 /* DTVStation.m in Sources */,
 				1DB1E22414F7842600C7D0DF /* main.m in Sources */,
 				1DB1E22814F7842600C7D0DF /* AppDelegate.m in Sources */,
-				1DB1E22E14F7842600C7D0DF /* MapViewController.m in Sources */,
+				1DB1E22E14F7842600C7D0DF /* MapMashupViewController.m in Sources */,
 				DCB254EE14F8463A00444352 /* FCCService.m in Sources */,
 				DCB2550614F854A500444352 /* GraphicalStation.m in Sources */,
 				DCB2550914F8653F00444352 /* StationAnnotation.m in Sources */,

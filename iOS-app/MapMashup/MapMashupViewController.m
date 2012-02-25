@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MapViewController.h"
+#import "MapMashupViewController.h"
 #import "DTVClientAPI.h"
 #import "FCCService.h"
 #import "JSONKit.h"
@@ -15,32 +15,22 @@
 #import "MKPolygon+ColorExtension.h"
 #import "UIColor+RGBHexExtension.h"
 
-@interface MapViewController ()
-
+@interface MapMashupViewController ()
 @property (strong, nonatomic) DTVClientAPI* dtvAPI;
-@property (strong, nonatomic) NSMutableDictionary *polygonsDictionary;
-
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station;
-
 @end
 
-@implementation MapViewController
+@implementation MapMashupViewController
 
 @synthesize mapView;
 @synthesize currentLocation;
 @synthesize dtvAPI;
-@synthesize polygonsDictionary;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.dtvAPI = [[DTVClientAPI alloc] init];
     self.dtvAPI.delegate = self;
-    
-    
-    //    MKOverlayView *overlay = [[MKOverlayView alloc] init];
-    //    overlay.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mapOverlay.png"]];
-    //    [self.mapView addOverlay:overlay.overlay];
 }
 
 - (void)viewDidUnload {
@@ -71,8 +61,8 @@
 - (void)mapView:(MKMapView *)currentMapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     MKCoordinateRegion region;
 	region.center = userLocation.location.coordinate;
-    region.span.latitudeDelta = 1.5;
-    region.span.longitudeDelta = 1.5;
+    region.span.latitudeDelta = 2.5;
+    region.span.longitudeDelta = 2.5;
     [self.mapView setRegion:region];
     
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
@@ -84,22 +74,18 @@
     }];
 }
 
-- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation{
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation {
     
-    if ([annotation isKindOfClass:[StationAnnotation class]])   // for stations
-    {
-        static NSString* StationAnnotationIdentifier = @"StationAnnotationIdentifier";
-        MKPinAnnotationView* pinView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:StationAnnotationIdentifier];
-
-        if (!pinView)
-        {
-            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:StationAnnotationIdentifier];
-//            annotationView.canShowCallout = YES;
-            UIImage *stationImage = [UIImage imageNamed:@"station_tower_0x00ff00.gif"];
-            annotationView.image = stationImage;
-            annotationView.opaque = NO;
-            return annotationView;
-        } 
+    static NSString* StationAnnotationIdentifier = @"StationAnnotationIdentifier";
+    
+    if ([annotation isKindOfClass:[StationAnnotation class]]) {  // for stations 
+        StationAnnotation *stationAnnotation = annotation;
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:StationAnnotationIdentifier];
+        //annotationView.canShowCallout = YES;
+        annotationView.image = stationAnnotation.stationImage;
+        annotationView.opaque = NO;
+        return annotationView;
+        
     } else {
         MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
         return annView;
@@ -108,8 +94,6 @@
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay {
-    
-    NSLog(@"overlay class: %@", [overlay class]);
     
     if([overlay isKindOfClass:[MKPolygon class]]) {
         MKPolygon *signalOverlay = overlay;
@@ -148,9 +132,6 @@
 
 #pragma mark - private methods
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station {
-    
-    NSLog(@"graphical stations's callsign = %@", station.polygonCoordinatesArray);
-    
     int numberOfPoints = station.polygonCoordinatesArray.count;
     CLLocationCoordinate2D polygonCoordinates[numberOfPoints];
     int i = 0;
@@ -162,16 +143,9 @@
     
     MKPolygon *stationSignalOverlay = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
     stationSignalOverlay.polygonColor = [UIColor colorFromHexString:station.stationColorRGBValue];
-    [self.mapView addOverlay:stationSignalOverlay];
-    
-    CLLocationDegrees stationLatitude = [[station.towerCoordinates objectAtIndex:0] doubleValue];
-    CLLocationDegrees stationLongitude = [[station.towerCoordinates objectAtIndex:1] doubleValue];
-    CLLocationCoordinate2D stationCoordinate = CLLocationCoordinate2DMake(stationLatitude, stationLongitude);
-    
-    StationAnnotation *stationAnnotation = [StationAnnotation initStationAnnotationWithCoordinate:stationCoordinate andTitle:station.callsign];
-//    stationAnnotation.stationImage = UIImage imageNamed:@"";
-    [self.mapView addAnnotation:stationAnnotation];
+    [self.mapView addOverlay:stationSignalOverlay];    
+    [self.mapView addAnnotation:[StationAnnotation stationAnnotationFromGraphicalStation:station]];
 }
-                                            
-                                            
+
+
 @end

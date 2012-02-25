@@ -12,7 +12,7 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "DTVClientAPI.h"
 
-@interface MapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate, DTVClientAPIDelegate, ASIHTTPRequestDelegate>
+@interface MapMashupViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate, DTVClientAPIDelegate, ASIHTTPRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocation *currentLocation;
