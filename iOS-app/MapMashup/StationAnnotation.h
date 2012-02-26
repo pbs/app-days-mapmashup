@@ -15,7 +15,10 @@
 
 + (StationAnnotation *) stationAnnotationFromGraphicalStation:(GraphicalStation *)graphicalStation;
 
++ (StationAnnotation *) annotationWithCoordinates:(CLLocationCoordinate2D)coordinates;
+
 @property (strong, nonatomic) UIImage *stationImage;
+@property (strong, nonatomic) UIImage *logoImage;
 @property (strong, nonatomic) NSString *stationTitle;
 
 @end

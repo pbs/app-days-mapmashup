@@ -9,7 +9,7 @@
 #import "FCCService.h"
 #import "ASIHTTPRequest.h"
 
-#define FCC_DATA_URL @"http://192.168.1.148/~rareszehan/map-mashup/stations-json/"
+#define FCC_DATA_URL @"http://www.tomsplayground.com/pbs/app-days-mapmashup/stations-json/"
 
 @implementation FCCService
 

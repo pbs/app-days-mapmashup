@@ -8,8 +8,9 @@
 
 #import <MapKit/MapKit.h>
 
-@interface MKPolygon (ColorExtension)
+@interface MKPolygon (BroadcastInfo)
 
-@property (strong, nonatomic) UIColor *polygonColor;
+@property (strong, nonatomic) NSArray *coordinateBoundsArray;
+@property (strong, nonatomic) UIImage *broadcastOverlayImage;
 
 @end

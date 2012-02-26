@@ -129,17 +129,20 @@
 		1DF8390514F7D3C4007889F5 /* COVEEpisode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DF8390614F7D3C4007889F5 /* COVEProgram.h in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EB14F7D3B2007889F5 /* COVEProgram.h */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DF8390714F7D3C4007889F5 /* COVEProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF838EC14F7D3B2007889F5 /* COVEProgram.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DC40FF1714F91EF8000F9281 /* MKPolygon+ColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC40FF1614F91EF8000F9281 /* MKPolygon+ColorExtension.m */; };
-		DC40FF2214F929B0000F9281 /* UIColor+RGBHexExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DC40FF2114F929B0000F9281 /* UIColor+RGBHexExtension.m */; };
+		DC0577BE14FA712000E4D14E /* MKPolyline+BroadcastInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0577BD14FA712000E4D14E /* MKPolyline+BroadcastInfo.m */; };
+		DC40FF1714F91EF8000F9281 /* MKPolygon+BroadcastInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DC40FF1614F91EF8000F9281 /* MKPolygon+BroadcastInfo.m */; };
 		DC40FF2814F92DD5000F9281 /* station_tower_0x00ff00.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC40FF2714F92DD4000F9281 /* station_tower_0x00ff00.gif */; };
 		DC40FF2A14F93898000F9281 /* station_tower_0xff0000.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC40FF2914F93898000F9281 /* station_tower_0xff0000.gif */; };
 		DC40FF2C14F93A58000F9281 /* station_tower_0x0000ff.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC40FF2B14F93A58000F9281 /* station_tower_0x0000ff.gif */; };
+		DC40FF3414F948B9000F9281 /* WMPB-Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = DC40FF3314F948B9000F9281 /* WMPB-Overlay.png */; };
+		DC40FF3714F94A04000F9281 /* StationSignalOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC40FF3614F94A04000F9281 /* StationSignalOverlayView.m */; };
 		DCB254EE14F8463A00444352 /* FCCService.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB254ED14F8463A00444352 /* FCCService.m */; };
 		DCB2550114F8511D00444352 /* WETA.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB254FE14F8511D00444352 /* WETA.json */; };
 		DCB2550214F8511D00444352 /* WHUT.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB254FF14F8511D00444352 /* WHUT.json */; };
 		DCB2550314F8511D00444352 /* WMPB.json in Resources */ = {isa = PBXBuildFile; fileRef = DCB2550014F8511D00444352 /* WMPB.json */; };
 		DCB2550614F854A500444352 /* GraphicalStation.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2550514F854A500444352 /* GraphicalStation.m */; };
 		DCB2550914F8653F00444352 /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2550814F8653E00444352 /* StationAnnotation.m */; };
+		DCCC375B14FAED85009F7548 /* UIColor+HexRGBAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCC375A14FAED85009F7548 /* UIColor+HexRGBAddition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,13 +254,16 @@
 		1DF838EA14F7D3B2007889F5 /* COVEEpisode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEEpisode.m; sourceTree = "<group>"; };
 		1DF838EB14F7D3B2007889F5 /* COVEProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COVEProgram.h; sourceTree = "<group>"; };
 		1DF838EC14F7D3B2007889F5 /* COVEProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COVEProgram.m; sourceTree = "<group>"; };
-		DC40FF1514F91EF8000F9281 /* MKPolygon+ColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKPolygon+ColorExtension.h"; sourceTree = "<group>"; };
-		DC40FF1614F91EF8000F9281 /* MKPolygon+ColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKPolygon+ColorExtension.m"; sourceTree = "<group>"; };
-		DC40FF2014F929B0000F9281 /* UIColor+RGBHexExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBHexExtension.h"; sourceTree = "<group>"; };
-		DC40FF2114F929B0000F9281 /* UIColor+RGBHexExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBHexExtension.m"; sourceTree = "<group>"; };
+		DC0577BC14FA712000E4D14E /* MKPolyline+BroadcastInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKPolyline+BroadcastInfo.h"; sourceTree = "<group>"; };
+		DC0577BD14FA712000E4D14E /* MKPolyline+BroadcastInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKPolyline+BroadcastInfo.m"; sourceTree = "<group>"; };
+		DC40FF1514F91EF8000F9281 /* MKPolygon+BroadcastInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKPolygon+BroadcastInfo.h"; sourceTree = "<group>"; };
+		DC40FF1614F91EF8000F9281 /* MKPolygon+BroadcastInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKPolygon+BroadcastInfo.m"; sourceTree = "<group>"; };
 		DC40FF2714F92DD4000F9281 /* station_tower_0x00ff00.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = station_tower_0x00ff00.gif; sourceTree = "<group>"; };
 		DC40FF2914F93898000F9281 /* station_tower_0xff0000.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = station_tower_0xff0000.gif; sourceTree = "<group>"; };
 		DC40FF2B14F93A58000F9281 /* station_tower_0x0000ff.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = station_tower_0x0000ff.gif; sourceTree = "<group>"; };
+		DC40FF3314F948B9000F9281 /* WMPB-Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WMPB-Overlay.png"; sourceTree = "<group>"; };
+		DC40FF3514F94A04000F9281 /* StationSignalOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationSignalOverlayView.h; sourceTree = "<group>"; };
+		DC40FF3614F94A04000F9281 /* StationSignalOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationSignalOverlayView.m; sourceTree = "<group>"; };
 		DCB254EC14F8463A00444352 /* FCCService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCService.h; sourceTree = "<group>"; };
 		DCB254ED14F8463A00444352 /* FCCService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCService.m; sourceTree = "<group>"; };
 		DCB254FE14F8511D00444352 /* WETA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WETA.json; sourceTree = "<group>"; };
@@ -267,6 +273,8 @@
 		DCB2550514F854A500444352 /* GraphicalStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicalStation.m; sourceTree = "<group>"; };
 		DCB2550714F8653E00444352 /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
 		DCB2550814F8653E00444352 /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
+		DCCC375914FAED85009F7548 /* UIColor+HexRGBAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRGBAddition.h"; sourceTree = "<group>"; };
+		DCCC375A14FAED85009F7548 /* UIColor+HexRGBAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRGBAddition.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +401,7 @@
 		1DEC2FA214F7BAC80038DBB6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DC40FF3314F948B9000F9281 /* WMPB-Overlay.png */,
 				DC40FF2B14F93A58000F9281 /* station_tower_0x0000ff.gif */,
 				DC40FF2914F93898000F9281 /* station_tower_0xff0000.gif */,
 				DC40FF2714F92DD4000F9281 /* station_tower_0x00ff00.gif */,
@@ -568,10 +577,12 @@
 		DC40FF2F14F945F8000F9281 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				DC40FF1514F91EF8000F9281 /* MKPolygon+ColorExtension.h */,
-				DC40FF1614F91EF8000F9281 /* MKPolygon+ColorExtension.m */,
-				DC40FF2014F929B0000F9281 /* UIColor+RGBHexExtension.h */,
-				DC40FF2114F929B0000F9281 /* UIColor+RGBHexExtension.m */,
+				DC40FF1514F91EF8000F9281 /* MKPolygon+BroadcastInfo.h */,
+				DC40FF1614F91EF8000F9281 /* MKPolygon+BroadcastInfo.m */,
+				DC0577BC14FA712000E4D14E /* MKPolyline+BroadcastInfo.h */,
+				DC0577BD14FA712000E4D14E /* MKPolyline+BroadcastInfo.m */,
+				DCCC375914FAED85009F7548 /* UIColor+HexRGBAddition.h */,
+				DCCC375A14FAED85009F7548 /* UIColor+HexRGBAddition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -590,6 +601,8 @@
 			children = (
 				DCB2550714F8653E00444352 /* StationAnnotation.h */,
 				DCB2550814F8653E00444352 /* StationAnnotation.m */,
+				DC40FF3514F94A04000F9281 /* StationSignalOverlayView.h */,
+				DC40FF3614F94A04000F9281 /* StationSignalOverlayView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -686,6 +699,7 @@
 				DC40FF2814F92DD5000F9281 /* station_tower_0x00ff00.gif in Resources */,
 				DC40FF2A14F93898000F9281 /* station_tower_0xff0000.gif in Resources */,
 				DC40FF2C14F93A58000F9281 /* station_tower_0x0000ff.gif in Resources */,
+				DC40FF3414F948B9000F9281 /* WMPB-Overlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,8 +807,10 @@
 				DCB254EE14F8463A00444352 /* FCCService.m in Sources */,
 				DCB2550614F854A500444352 /* GraphicalStation.m in Sources */,
 				DCB2550914F8653F00444352 /* StationAnnotation.m in Sources */,
-				DC40FF1714F91EF8000F9281 /* MKPolygon+ColorExtension.m in Sources */,
-				DC40FF2214F929B0000F9281 /* UIColor+RGBHexExtension.m in Sources */,
+				DC40FF1714F91EF8000F9281 /* MKPolygon+BroadcastInfo.m in Sources */,
+				DC40FF3714F94A04000F9281 /* StationSignalOverlayView.m in Sources */,
+				DC0577BE14FA712000E4D14E /* MKPolyline+BroadcastInfo.m in Sources */,
+				DCCC375B14FAED85009F7548 /* UIColor+HexRGBAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

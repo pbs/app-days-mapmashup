@@ -13,6 +13,7 @@
 
 @synthesize coordinate;
 @synthesize stationImage;
+@synthesize logoImage;
 @synthesize stationTitle;
 
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
@@ -28,6 +29,15 @@
     annotation.coordinate = stationCoordinate;
     annotation.stationTitle = graphicalStation.callsign;
     annotation.stationImage = [UIImage imageNamed:@"station_tower_0x0000ff.gif"];
+    NSURL *logoURL = [NSURL URLWithString:graphicalStation.stationLogoUrlString];
+    NSData *logoData = [NSData dataWithContentsOfURL:logoURL];
+    annotation.logoImage = [UIImage imageWithData:logoData];
+    return annotation;
+}
+
++ (StationAnnotation *) annotationWithCoordinates:(CLLocationCoordinate2D)coordinates {
+    StationAnnotation *annotation = [[StationAnnotation alloc] init];
+    annotation.coordinate = coordinates;
     return annotation;
 }
 

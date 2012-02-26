@@ -18,5 +18,7 @@
 @property (strong, nonatomic) NSString *stationColorRGBValue;
 @property (strong, nonatomic) NSArray *towerCoordinates;
 @property (strong, nonatomic) NSString *towerImageURLString;
+@property (strong, nonatomic) NSString *stationLogoUrlString;
+@property (strong, nonatomic) NSString *broadcastOverlayUrlString;
 
 @end
