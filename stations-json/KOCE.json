@@ -2,7 +2,9 @@
 	"callsign": "KOCE",
 	"towerCoordinates": [34.226393,-118.066735],
 	"polygonBounds" : [[31.53430,-121.32960],[36.91848,-114.80387]],
-	"broadcastOverlay" : "KOCE-DT_0_D_31.53430x-121.32960x36.91848x-114.80387.png",
+	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/KOCE-DT_0_D_31.53430x-121.32960x36.91848x-114.80387.png",
+	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KOCE.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0x00ff00.gif",
 	"stationColor": "0x00ff00",
 	"polygonCoordinatesArray": [
         [35.191130,-118.046130],

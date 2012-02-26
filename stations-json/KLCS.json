@@ -2,7 +2,9 @@
 	"callsign": "KLCS",
 	"towerCoordinates": [34.223893,-118.063402],
 	"polygonBounds" : [[31.53180,-121.32617],[36.91598,-114.80064]],
-	"broadcastOverlay" : "KLCS_0_D_31.53180x-121.32617x36.91598x-114.80064.png",
+	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/KLCS_0_D_31.53180x-121.32617x36.91598x-114.80064.png",
+	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KLCS.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0x0000ff.gif",
 	"stationColor": "0x0000ff",
 	"polygonCoordinatesArray": [
 	    [35.136110,-118.043930],

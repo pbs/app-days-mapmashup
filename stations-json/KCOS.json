@@ -2,7 +2,9 @@
 	"callsign": "KCOS",
 	"towerCoordinates": [31.787608,-106.480265],
 	"polygonBounds" : [[29.09517,-109.65371],[34.48005,-103.30682]],
-	"broadcastOverlay" : "KCOS_0_D_29.09517x-109.65371x34.48005x-103.30682.png",
+	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/KCOS_0_D_29.09517x-109.65371x34.48005x-103.30682.png",
+	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KCOS.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0xff8000.gif",
 	"stationColor": "0xff8000",
 	"polygonCoordinatesArray": [
         [32.345110,-106.468750],

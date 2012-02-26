@@ -2,8 +2,10 @@
 	"callsign": "KPBS",
 	"towerCoordinates": [32.698110,-116.935024],
 	"polygonBounds" : [[30.00580,-120.14060],[35.39042,-113.72945]],
-	"broadcastOverlay" : "KPBS-DT_0_D_30.00580x-120.14060x35.39042x-113.72945.png",
-	"stationColor": "0xF000FF",
+	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/KPBS-DT_0_D_30.00580x-120.14060x35.39042x-113.72945.png",
+	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KPBS.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0x0000ff.gif",
+	"stationColor": "0x0000ff",
 	"polygonCoordinatesArray": [
         [33.711320,-116.913760],
 		[33.710620,-116.935020],

@@ -2,7 +2,9 @@
 	"callsign": "KQED",
 	"towerCoordinates": [37.755208,-122.452748],
 	"polygonBounds" : [[35.06365,-125.86562],[40.44677,-119.03987]],
-	"broadcastOverlay" : "KQED_0_D_35.06365x-125.86562x40.44677x-119.03987.png",
+	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/KQED_0_D_35.06365x-125.86562x40.44677x-119.03987.png",
+	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KQED.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0xff0000.gif",
 	"stationColor": "0xff0000",
 	"polygonCoordinatesArray": [
         [38.715080,-122.431270],
