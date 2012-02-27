@@ -20,25 +20,32 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-@interface MapMashupViewController ()
+@interface MapMashupViewController () {
+    CLLocationCoordinate2D currentLocation;
+}
 @property (strong, nonatomic) DTVClientAPI* dtvAPI;
 
 @property (strong, nonatomic) NSMutableArray *polygonsArray;
 @property (strong, nonatomic) NSMutableArray *polygonsOverlayArray;
+@property (strong, nonatomic) GraphicalStation *selectedStationForDetails;
+@property (readwrite, nonatomic) BOOL showPolygons;
+@property (readwrite, nonatomic) BOOL showOverlays;
 
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station;
 - (void)showPolygons:(id)sender;
 - (void)showBroadcastOverlays:(id)sender;
+- (void)displayStationDetails:(id)sender;
+- (void)zipCodeChanged:(id)sender;
 @end
 
 @implementation MapMashupViewController
 
 @synthesize mapView;
-@synthesize currentLocation;
 @synthesize mainToolbar;
 @synthesize dtvAPI;
 @synthesize polygonsArray;
 @synthesize polygonsOverlayArray;
+@synthesize selectedStationForDetails;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,8 +56,11 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     self.polygonsArray = [NSMutableArray array];
     self.polygonsOverlayArray = [NSMutableArray array];
     
+//    self.showPolygons = [NSUserDefaults ];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPolygons:) name:NOTIFICATION_SHOW_POLYGONS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBroadcastOverlays:) name:NOTIFICATION_SHOW_BROADCAST_OVERLAYS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zipCodeChanged:) name:NOTIFICATION_ZIP_CODE_CHANGED object:nil];
 }
 
 - (void)viewDidUnload {
@@ -85,6 +95,24 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     }
 }
 
+- (void)zipCodeChanged:(id)sender {
+    NSNotification *notification = sender;
+    int newZipCode = [((NSNumber *) notification.object) intValue];
+    NSDictionary *addressDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", newZipCode], @"ZIP",  @"United States", @"Country", nil];
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder geocodeAddressDictionary:addressDictionary completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *placemark in placemarks) {
+//            [self.mapView setCenterCoordinate:placemark.location.coordinate animated:YES];
+            [self.dtvAPI getStationsForZip:placemark.postalCode];
+            currentLocation = placemark.location.coordinate;
+        }
+    }];
+}
+
+- (void)displayStationDetails:(id)sender {
+    NSLog(@"sender=%@", sender);
+}
+
 #pragma mark - Map View Delegate
 
 - (void)mapView:(MKMapView *)currentMapView didUpdateUserLocation:(MKUserLocation *)userLocation {
@@ -96,9 +124,11 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
     [geoCoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
-        for (CLPlacemark * placemark in placemarks) {
+        for (CLPlacemark *placemark in placemarks) {
+            NSLog(@"addressDictionary=%@", placemark.addressDictionary);
             NSLog(@"zip= %@", placemark.postalCode);
             [self.dtvAPI getStationsForZip:placemark.postalCode];
+            currentLocation = placemark.location.coordinate;
         }
     }];
 }
@@ -112,9 +142,17 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
         
         if (stationAnnotation.logoImage != nil) {
             MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:StationAnnotationIdentifier];
-            annotationView.image = stationAnnotation.logoImage;
-            //annotationView.image = stationAnnotation.stationImage;
+//            annotationView.image = stationAnnotation.logoImage;
+            annotationView.image = stationAnnotation.stationImage;
             annotationView.opaque = NO;
+            annotationView.canShowCallout = YES;
+            UIImageView *leftCalloutImageView = [[UIImageView alloc] initWithImage:stationAnnotation.logoImage];
+            leftCalloutImageView.frame = CGRectMake(0, 0, 48.0, 32.0);
+            annotationView.leftCalloutAccessoryView = leftCalloutImageView;
+            UIButton *stationDetailsButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            [stationDetailsButton addTarget:self action:@selector(displayStationDetails:) forControlEvents:UIControlStateNormal];
+            annotationView.rightCalloutAccessoryView = stationDetailsButton;
+            
             return annotationView;
         }
     }
@@ -170,6 +208,11 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 #pragma mark - private methods
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station {
     
+//    [self.mapView removeOverlays:polygonsArray];
+//    [self.polygonsArray removeAllObjects];
+//    [self.mapView removeOverlays:polygonsOverlayArray];
+//    [self.polygonsOverlayArray removeAllObjects];
+    
     NSLog(@"adding graphical station: %@", station.callsign);
     
     int numberOfPoints = station.polygonCoordinatesArray.count;
@@ -187,12 +230,24 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     [self.polygonsArray addObject:stationPolylineOverlay];
     
     MKPolygon *broadcastPolygonOverlay = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
-    broadcastPolygonOverlay.broadcastOverlayImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:station.broadcastOverlayUrlString]]];
+    
+    __weak ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:station.broadcastOverlayUrlString]];
+    [request setCompletionBlock:^{
+        NSData *imageData = [request responseData];
+        broadcastPolygonOverlay.broadcastOverlayImage = [UIImage imageWithData:imageData];
+    }];
+    [request setFailedBlock:^{
+        NSLog(@"Error while making the request: %@", request.error.localizedDescription);
+    }];
+    [request startAsynchronous];
+    
     broadcastPolygonOverlay.coordinateBoundsArray = station.polygonBounds;
     [self.mapView addOverlay:broadcastPolygonOverlay];
     [self.polygonsOverlayArray addObject:broadcastPolygonOverlay];
     
     [self.mapView addAnnotation:[StationAnnotation stationAnnotationFromGraphicalStation:station]];
+    
+    [self.mapView setCenterCoordinate:currentLocation];
 }
 
 

@@ -8,9 +8,11 @@
 
 #import "StationAnnotation.h"
 #import "GraphicalStation.h"
+#import "ASIHTTPRequest.h"
 
 @implementation StationAnnotation
 
+@synthesize title;
 @synthesize coordinate;
 @synthesize stationImage;
 @synthesize logoImage;
@@ -20,15 +22,30 @@
     coordinate = newCoordinate;
 }
 
+- (void)setTitle:(NSString *)newTitle {
+    title = newTitle;
+}
+
 + (StationAnnotation *)stationAnnotationFromGraphicalStation:(GraphicalStation *)graphicalStation {
     
     CLLocationDegrees stationLatitude = [[graphicalStation.towerCoordinates objectAtIndex:0] doubleValue];
     CLLocationDegrees stationLongitude = [[graphicalStation.towerCoordinates objectAtIndex:1] doubleValue];
     CLLocationCoordinate2D stationCoordinate = CLLocationCoordinate2DMake(stationLatitude, stationLongitude);
-    StationAnnotation *annotation = [[StationAnnotation alloc] init];
+    __block StationAnnotation *annotation = [[StationAnnotation alloc] init];
     annotation.coordinate = stationCoordinate;
     annotation.stationTitle = graphicalStation.callsign;
-    annotation.stationImage = [UIImage imageNamed:@"station_tower_0x0000ff.gif"];
+    annotation.title = graphicalStation.callsign;
+    
+    __weak ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:graphicalStation.towerImageURLString]];
+    [request setCompletionBlock:^{
+        NSData *imageData = [request responseData];
+        annotation.stationImage = [UIImage imageWithData:imageData];
+    }];
+    [request setFailedBlock:^{
+        NSLog(@"Error while making the request: %@", request.error.localizedDescription);
+    }];
+    [request startAsynchronous];
+
     NSURL *logoURL = [NSURL URLWithString:graphicalStation.stationLogoUrlString];
     NSData *logoData = [NSData dataWithContentsOfURL:logoURL];
     annotation.logoImage = [UIImage imageWithData:logoData];
