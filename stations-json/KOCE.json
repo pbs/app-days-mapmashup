@@ -5,6 +5,7 @@
 	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/KOCE-DT_0_D_31.53430x-121.32960x36.91848x-114.80387.png",
 	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KOCE.gif",
 	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0x00ff00.gif",
+	"station_website" : "http://www.pbssocal.org/",
 	"stationColor": "0x00ff00",
 	"polygonCoordinatesArray": [
         [35.191130,-118.046130],

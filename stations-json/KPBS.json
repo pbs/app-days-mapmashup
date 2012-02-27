@@ -5,6 +5,7 @@
 	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/KPBS-DT_0_D_30.00580x-120.14060x35.39042x-113.72945.png",
 	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KPBS.gif",
 	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0x0000ff.gif",
+	"station_website" : "http://www.kpbs.org/",
 	"stationColor": "0x0000ff",
 	"polygonCoordinatesArray": [
         [33.711320,-116.913760],

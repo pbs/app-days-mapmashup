@@ -6,6 +6,7 @@
 	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/KQED.gif",
 	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0xff0000.gif",
 	"stationColor": "0xff0000",
+	"station_website" : "http://www.kqed.org/",
 	"polygonCoordinatesArray": [
         [38.715080,-122.431270],
 		[38.712160,-122.452740],
