@@ -49,8 +49,8 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     self.polygonsArray = [NSMutableArray array];
     self.polygonsOverlayArray = [NSMutableArray array];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPolygons:) name:@"SHOW_POLYGONS" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBroadcastOverlays:) name:@"SHOW_BROADCAST_OVERLAYS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPolygons:) name:NOTIFICATION_SHOW_POLYGONS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBroadcastOverlays:) name:NOTIFICATION_SHOW_BROADCAST_OVERLAYS object:nil];
 }
 
 - (void)viewDidUnload {
@@ -66,14 +66,12 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 - (void)showPolygons:(id)sender {
     NSNotification *notification = sender;
     BOOL show = [((NSNumber *) notification.object) boolValue];
-    NSLog(@"Number of polygons: %d", [self.polygonsArray count]);
     
     if (!show) {
         [self.mapView removeOverlays:self.polygonsArray];
     } else {
         [self.mapView addOverlays:self.polygonsArray];
     }
-    NSLog(@"notification received from sender=%@", sender);
 }
 
 - (void)showBroadcastOverlays:(id)sender {
@@ -85,7 +83,6 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     } else {
         [self.mapView addOverlays:polygonsOverlayArray];
     }
-    NSLog(@"notification received from sender=%@", sender);
 }
 
 #pragma mark - Map View Delegate

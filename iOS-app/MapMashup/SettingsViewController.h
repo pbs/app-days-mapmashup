@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UISwitch *showPolygonsSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *showBroadcastOverlaysSwitch;
 - (IBAction)toggleShowPolygons:(id)sender;
 - (IBAction)toggleShowBroadcastOverlays:(id)sender;
-
 @end

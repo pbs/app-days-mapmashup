@@ -12,3 +12,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define NOTIFICATION_SHOW_POLYGONS @"SHOW_POLYGONS"
+#define NOTIFICATION_SHOW_BROADCAST_OVERLAYS @"SHOW_BROADCAST_OVERLAYS"

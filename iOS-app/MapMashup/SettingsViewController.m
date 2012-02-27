@@ -13,27 +13,21 @@
 @end
 
 @implementation SettingsViewController
-@synthesize showPolygonsSwitch;
-@synthesize showBroadcastOverlaysSwitch;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
 }
 
 - (void)viewDidUnload {
-    [self setShowPolygonsSwitch:nil];
-    [self setShowBroadcastOverlaysSwitch:nil];
     [super viewDidUnload];
 }
 - (IBAction)toggleShowPolygons:(id)sender {
     UISwitch *showPolygonsSwtch = sender;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_POLYGONS" object:[NSNumber numberWithBool:showPolygonsSwtch.on]];
-    NSLog(@"polygons=%@", showPolygonsSwtch.on ? @"ON" : @"OFF");
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_POLYGONS object:[NSNumber numberWithBool:showPolygonsSwtch.on]];
 }
 
 - (IBAction)toggleShowBroadcastOverlays:(id)sender {
     UISwitch *showPolygonsSwtch = sender;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SHOW_BROADCAST_OVERLAYS" object:[NSNumber numberWithBool:showPolygonsSwtch.on]];
-    NSLog(@"broadcastoverlay=%@", showPolygonsSwtch.on ? @"ON" : @"OFF");
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_BROADCAST_OVERLAYS object:[NSNumber numberWithBool:showPolygonsSwtch.on]];
 }
 @end
