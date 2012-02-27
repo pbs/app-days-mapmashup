@@ -23,16 +23,19 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 @interface MapMashupViewController ()
 @property (strong, nonatomic) DTVClientAPI* dtvAPI;
 
-@property (strong, nonatomic) NSArray *polygonsArray;
-@property (strong, nonatomic) NSArray *polygonsOverlayArray;
+@property (strong, nonatomic) NSMutableArray *polygonsArray;
+@property (strong, nonatomic) NSMutableArray *polygonsOverlayArray;
 
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station;
+- (void)showPolygons:(id)sender;
+- (void)showBroadcastOverlays:(id)sender;
 @end
 
 @implementation MapMashupViewController
 
 @synthesize mapView;
 @synthesize currentLocation;
+@synthesize mainToolbar;
 @synthesize dtvAPI;
 @synthesize polygonsArray;
 @synthesize polygonsOverlayArray;
@@ -42,10 +45,17 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     
     self.dtvAPI = [[DTVClientAPI alloc] init];
     self.dtvAPI.delegate = self;
+    
+    self.polygonsArray = [NSMutableArray array];
+    self.polygonsOverlayArray = [NSMutableArray array];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPolygons:) name:@"SHOW_POLYGONS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBroadcastOverlays:) name:@"SHOW_BROADCAST_OVERLAYS" object:nil];
 }
 
 - (void)viewDidUnload {
     [self setMapView:nil];
+    [self setMainToolbar:nil];
     [super viewDidUnload];
 }
 
@@ -53,18 +63,29 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     return YES;
 }
 
-- (IBAction)settingsPushedAction:(id)sender {
-    //    SettingsViewController *content = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-    //    
-    //	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:content];
-    //	[navigationController setToolbarHidden:YES];
-    //	[navigationController setNavigationBarHidden:NO];
-    //    
-    //    [content restoreLastUsedSettings];
-	
-    //	self.settingsPopoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
-    //	self.settingsPopoverController.delegate = self;
-    //    self.settingsPopoverController.passthroughViews = [NSArray arrayWithObject:self.navigationView];
+- (void)showPolygons:(id)sender {
+    NSNotification *notification = sender;
+    BOOL show = [((NSNumber *) notification.object) boolValue];
+    NSLog(@"Number of polygons: %d", [self.polygonsArray count]);
+    
+    if (!show) {
+        [self.mapView removeOverlays:self.polygonsArray];
+    } else {
+        [self.mapView addOverlays:self.polygonsArray];
+    }
+    NSLog(@"notification received from sender=%@", sender);
+}
+
+- (void)showBroadcastOverlays:(id)sender {
+    NSNotification *notification = sender;
+    BOOL show = [((NSNumber *) notification.object) boolValue];
+    
+    if (!show) {
+        [self.mapView removeOverlays:polygonsOverlayArray];
+    } else {
+        [self.mapView addOverlays:polygonsOverlayArray];
+    }
+    NSLog(@"notification received from sender=%@", sender);
 }
 
 #pragma mark - Map View Delegate
@@ -107,8 +128,6 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay {
-    
-    NSLog(@"overlay class=%@", [overlay class]);
     
     if ([overlay isKindOfClass:[MKPolyline class]]) { // signal bounds polygon line 
         MKPolylineView *view = [[MKPolylineView alloc] initWithOverlay:overlay];
@@ -154,10 +173,6 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 #pragma mark - private methods
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station {
     
-    //    for (GraphicalStation *station in stationsArray) {
-    //        
-    //    }
-    
     NSLog(@"adding graphical station: %@", station.callsign);
     
     int numberOfPoints = station.polygonCoordinatesArray.count;
@@ -172,11 +187,13 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     MKPolyline *stationPolylineOverlay = [MKPolyline polylineWithCoordinates:polygonCoordinates count:numberOfPoints];
     stationPolylineOverlay.broadcastColor = [UIColor colorWithHexValue:[station.stationColorRGBValue substringFromIndex:2]];
     [self.mapView addOverlay:stationPolylineOverlay];
+    [self.polygonsArray addObject:stationPolylineOverlay];
     
     MKPolygon *broadcastPolygonOverlay = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
     broadcastPolygonOverlay.broadcastOverlayImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:station.broadcastOverlayUrlString]]];
     broadcastPolygonOverlay.coordinateBoundsArray = station.polygonBounds;
     [self.mapView addOverlay:broadcastPolygonOverlay];
+    [self.polygonsOverlayArray addObject:broadcastPolygonOverlay];
     
     [self.mapView addAnnotation:[StationAnnotation stationAnnotationFromGraphicalStation:station]];
 }

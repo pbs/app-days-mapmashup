@@ -16,7 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocation *currentLocation;
-
-- (IBAction)settingsPushedAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIToolbar *mainToolbar;
 
 @end

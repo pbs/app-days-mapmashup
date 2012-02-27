@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D6C1D0914FB8A5100DDA4CB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C1D0814FB8A5100DDA4CB /* SettingsViewController.m */; };
 		1DB1E21814F7842600C7D0DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21714F7842600C7D0DF /* UIKit.framework */; };
 		1DB1E21A14F7842600C7D0DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21914F7842600C7D0DF /* Foundation.framework */; };
 		1DB1E21C14F7842600C7D0DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E21B14F7842600C7D0DF /* CoreGraphics.framework */; };
@@ -22,7 +23,6 @@
 		1DB1E24314F7842600C7D0DF /* MapMashupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB1E24214F7842600C7D0DF /* MapMashupTests.m */; };
 		1DB1E24D14F784DE00C7D0DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E24C14F784DE00C7D0DF /* MapKit.framework */; };
 		1DB1E24F14F7851100C7D0DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB1E24E14F7851100C7D0DF /* CoreLocation.framework */; };
-		1DEC2F9D14F7B9D10038DBB6 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2F9C14F7B9D10038DBB6 /* SettingsViewController.xib */; };
 		1DEC2FA414F7BAF20038DBB6 /* PBS-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2FA314F7BAF20038DBB6 /* PBS-Logo.png */; };
 		1DEC2FA614F7BB710038DBB6 /* Settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2FA514F7BB710038DBB6 /* Settings-icon.png */; };
 		1DEC2FA814F7BC980038DBB6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC2FA714F7BC980038DBB6 /* Localizable.strings */; };
@@ -156,6 +156,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D6C1D0714FB8A5100DDA4CB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1D6C1D0814FB8A5100DDA4CB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1DB1E21314F7842600C7D0DF /* MapMashup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapMashup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB1E21714F7842600C7D0DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1DB1E21914F7842600C7D0DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -177,7 +179,6 @@
 		1DB1E24214F7842600C7D0DF /* MapMashupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapMashupTests.m; sourceTree = "<group>"; };
 		1DB1E24C14F784DE00C7D0DF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1DB1E24E14F7851100C7D0DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1DEC2F9C14F7B9D10038DBB6 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		1DEC2FA314F7BAF20038DBB6 /* PBS-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBS-Logo.png"; sourceTree = "<group>"; };
 		1DEC2FA514F7BB710038DBB6 /* Settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-icon.png"; sourceTree = "<group>"; };
 		1DEC2FA714F7BC980038DBB6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -360,7 +361,6 @@
 			children = (
 				DCB254FC14F8510300444352 /* jsons */,
 				1DEC2FA214F7BAC80038DBB6 /* images */,
-				1DEC2F9A14F7B9B90038DBB6 /* xibs */,
 				1DB1E22914F7842600C7D0DF /* MainStoryboard.storyboard */,
 				1DB1E21F14F7842600C7D0DF /* MapMashup-Info.plist */,
 				1DB1E22014F7842600C7D0DF /* InfoPlist.strings */,
@@ -388,14 +388,6 @@
 				1DB1E23E14F7842600C7D0DF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1DEC2F9A14F7B9B90038DBB6 /* xibs */ = {
-			isa = PBXGroup;
-			children = (
-				1DEC2F9C14F7B9D10038DBB6 /* SettingsViewController.xib */,
-			);
-			name = xibs;
 			sourceTree = "<group>";
 		};
 		1DEC2FA214F7BAC80038DBB6 /* images */ = {
@@ -570,6 +562,8 @@
 				1DB1E22D14F7842600C7D0DF /* MapMashupViewController.m */,
 				DCB254EC14F8463A00444352 /* FCCService.h */,
 				DCB254ED14F8463A00444352 /* FCCService.m */,
+				1D6C1D0714FB8A5100DDA4CB /* SettingsViewController.h */,
+				1D6C1D0814FB8A5100DDA4CB /* SettingsViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -689,7 +683,6 @@
 			files = (
 				1DB1E22214F7842600C7D0DF /* InfoPlist.strings in Resources */,
 				1DB1E22B14F7842600C7D0DF /* MainStoryboard.storyboard in Resources */,
-				1DEC2F9D14F7B9D10038DBB6 /* SettingsViewController.xib in Resources */,
 				1DEC2FA414F7BAF20038DBB6 /* PBS-Logo.png in Resources */,
 				1DEC2FA614F7BB710038DBB6 /* Settings-icon.png in Resources */,
 				1DEC2FA814F7BC980038DBB6 /* Localizable.strings in Resources */,
@@ -811,6 +804,7 @@
 				DC40FF3714F94A04000F9281 /* StationSignalOverlayView.m in Sources */,
 				DC0577BE14FA712000E4D14E /* MKPolyline+BroadcastInfo.m in Sources */,
 				DCCC375B14FAED85009F7548 /* UIColor+HexRGBAddition.m in Sources */,
+				1D6C1D0914FB8A5100DDA4CB /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

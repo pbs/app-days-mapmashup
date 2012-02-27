@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1173"/>
     </dependencies>
     <scenes>
+        <!--Map Mashup View Controller-->
         <scene sceneID="4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
@@ -14,19 +15,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsUserLocation="YES" id="cGl-cW-KjB">
-                                <rect key="frame" x="0.0" y="32" width="768" height="972"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="44" width="768" height="960"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="WIV-7B-8oM"/>
                                 </connections>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Mz2-bw-xp0">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" barStyle="blackTranslucent" id="DrH-66-jnb">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem image="Settings-icon.png" id="Hkb-wz-rrK">
                                         <connections>
                                             <action selector="settingsPushedAction:" destination="2" id="KNf-9h-gWg"/>
+                                            <segue destination="29L-1c-yU7" kind="popover" popoverAnchorBarButtonItem="Hkb-wz-rrK" id="RM0-WJ-IT9">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -34,11 +38,153 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <connections>
+                        <outlet property="mainToolbar" destination="DrH-66-jnb" id="X0Y-7N-hbD"/>
                         <outlet property="mapView" destination="cGl-cW-KjB" id="Rkg-NW-WRt"/>
                     </connections>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="-6794" y="-1352"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="OU4-a9-VvL">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qte-bO-T6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="zJm-cg-kaF" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1Nx-CR-7vN">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="0aE-Vs-YDg">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="h1k-8v-bZD">
+                                        <rect key="frame" x="0.0" y="10" width="350" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="330" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="C9Z-Iq-4Ja">
+                                                    <rect key="frame" x="251" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="toggleShowPolygons:" destination="zJm-cg-kaF" eventType="touchUpInside" id="N8n-wf-nd5"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show polygons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="wUG-1O-Mxm">
+                                                    <rect key="frame" x="20" y="11" width="118" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EEp-IG-daF">
+                                        <rect key="frame" x="0.0" y="55" width="350" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="330" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="p7j-fa-gNE">
+                                                    <rect key="frame" x="251" y="8" width="79" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="toggleShowBroadcastOverlays:" destination="zJm-cg-kaF" eventType="touchUpInside" id="a6X-GL-a4k"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show broadcast overlays" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="G6X-GY-Dp3">
+                                                    <rect key="frame" x="20" y="11" width="193" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5SU-7a-EaM">
+                                        <rect key="frame" x="0.0" y="99" width="350" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="330" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5PX-SM-Hkr">
+                                                    <rect key="frame" x="20" y="3" width="310" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Find by zip code">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Rf2-Ek-rFI">
+                                        <rect key="frame" x="0.0" y="143" width="350" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="330" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nYq-Df-daZ">
+                                                    <rect key="frame" x="20" y="3" width="310" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Find by current location">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="NXw-el-Yzu"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="showBroadcastOverlaysSwitch" destination="p7j-fa-gNE" id="8kE-af-Tv6"/>
+                        <outlet property="showPolygonsSwitch" destination="C9Z-Iq-4Ja" id="wRN-bZ-AWT"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-4347" y="-962"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UnA-vK-x34">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5a-bU-ud7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="29L-1c-yU7" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DZ1-RN-3Jc">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zJm-cg-kaF" kind="relationship" relationship="rootViewController" id="dp1-de-xwg"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-5578" y="-1352"/>
         </scene>
     </scenes>
     <resources>
@@ -49,7 +195,17 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapMashupViewController.h"/>
             <relationships>
                 <relationship kind="action" name="settingsPushedAction:"/>
+                <relationship kind="outlet" name="mainToolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toggleShowBroadcastOverlays:"/>
+                <relationship kind="action" name="toggleShowPolygons:"/>
+                <relationship kind="outlet" name="showBroadcastOverlaysSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="showPolygonsSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>
     </classes>
