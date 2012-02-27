@@ -4,7 +4,7 @@
 	"polygonBounds" : [[36.75603,-80.27434],[42.13863,-73.28506]],
 	"broadcastOverlay" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/broadcastOverlay/WMPB-DT_0_D_36.75603x-80.27434x42.13863x-73.28506.png",
 	"stationlogo" : "http://www-tc.pbs.org/images/stations/standard/WMPB.gif",
-	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0xFF0000.gif",
+	"towerimage" : "http://tomsplayground.com/pbs/app-days-mapmashup/images/station_tower_0xff0000.gif",
 	"station_website" : "http://www.mpt.org/",
 	"stationColor": "0xFF0000",
 	"polygonCoordinatesArray": [

@@ -17,7 +17,6 @@
 #import "MKPolyline+BroadcastInfo.h"
 #import "UIColor+HexRGBAddition.h"
 #import "StationDetailsViewController.h"
-#import "MBProgressHUD.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -30,6 +29,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 @property (strong, nonatomic) DTVClientAPI* dtvAPI;
 @property (strong, nonatomic) NSMutableArray *polygonsArray;
 @property (strong, nonatomic) NSMutableArray *polygonsOverlayArray;
+@property (strong, nonatomic) NSMutableArray *stationAnnotationsArray;
 @property (strong, nonatomic) GraphicalStation *selectedStationForDetails;
 @property (readwrite, nonatomic) BOOL showPolygons;
 @property (readwrite, nonatomic) BOOL showOverlays;
@@ -52,6 +52,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 @synthesize dtvAPI;
 @synthesize polygonsArray;
 @synthesize polygonsOverlayArray;
+@synthesize stationAnnotationsArray;
 @synthesize selectedStationForDetails;
 @synthesize showPolygons;
 @synthesize showOverlays;
@@ -70,6 +71,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     
     self.polygonsArray = [NSMutableArray array];
     self.polygonsOverlayArray = [NSMutableArray array];
+    self.stationAnnotationsArray = [NSMutableArray array];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *showPolygonsNumber = [defaults objectForKey:USER_DEFAULTS_SHOW_POLYGONS];
@@ -265,7 +267,9 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     [self.mapView addOverlay:broadcastPolygonOverlay];
     [self.polygonsOverlayArray addObject:broadcastPolygonOverlay];
     
-    [self.mapView addAnnotation:[StationAnnotation stationAnnotationFromGraphicalStation:station]];
+    StationAnnotation *stationAnnotation = [StationAnnotation stationAnnotationFromGraphicalStation:station];
+    [self.mapView addAnnotation:stationAnnotation];
+    [self.stationAnnotationsArray addObject:stationAnnotation];
 
     [self.mapView setCenterCoordinate:currentLocation];
 }
@@ -321,6 +325,9 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     [self.polygonsArray removeAllObjects];
     [self.mapView removeOverlays:polygonsOverlayArray];
     [self.polygonsOverlayArray removeAllObjects];
+    [self.mapView removeAnnotations:stationAnnotationsArray];
+    [self.stationAnnotationsArray removeAllObjects];
+    
     [self.dtvAPI getStationsForZip:placemark.postalCode];
     currentLocation = placemark.location.coordinate;
 }
