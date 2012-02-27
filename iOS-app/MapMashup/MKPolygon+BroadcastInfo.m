@@ -22,12 +22,12 @@ static char imageOverlayKey;
     return objc_getAssociatedObject( self, &boundsArrayKey);
 }
 
-- (void)setBroadcastOverlayImage:(UIImage *)broadcastOverlayImage {
-    objc_setAssociatedObject( self, &imageOverlayKey, broadcastOverlayImage, OBJC_ASSOCIATION_RETAIN);
+- (void)setBroadcastOverlayURLString:(NSString *)broadcastOverlayURLString {
+   objc_setAssociatedObject( self, &imageOverlayKey, broadcastOverlayURLString, OBJC_ASSOCIATION_RETAIN); 
 }
 
-- (UIImage *)broadcastOverlayImage {
-    return objc_getAssociatedObject( self, &imageOverlayKey);
+- (NSString *)broadcastOverlayURLString {
+   return objc_getAssociatedObject( self, &imageOverlayKey); 
 }
 
 @end

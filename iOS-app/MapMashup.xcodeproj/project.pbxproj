@@ -171,6 +171,8 @@
 		DCB2550614F854A500444352 /* GraphicalStation.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2550514F854A500444352 /* GraphicalStation.m */; };
 		DCB2550914F8653F00444352 /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2550814F8653E00444352 /* StationAnnotation.m */; };
 		DCCC375B14FAED85009F7548 /* UIColor+HexRGBAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCC375A14FAED85009F7548 /* UIColor+HexRGBAddition.m */; };
+		DCCC376514FC0135009F7548 /* StationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCC376414FC0134009F7548 /* StationDetailsViewController.m */; };
+		DCCC376F14FC0F72009F7548 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCC376E14FC0F72009F7548 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +335,10 @@
 		DCB2550814F8653E00444352 /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
 		DCCC375914FAED85009F7548 /* UIColor+HexRGBAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRGBAddition.h"; sourceTree = "<group>"; };
 		DCCC375A14FAED85009F7548 /* UIColor+HexRGBAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRGBAddition.m"; sourceTree = "<group>"; };
+		DCCC376314FC0134009F7548 /* StationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationDetailsViewController.h; sourceTree = "<group>"; };
+		DCCC376414FC0134009F7548 /* StationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationDetailsViewController.m; sourceTree = "<group>"; };
+		DCCC376D14FC0F72009F7548 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		DCCC376E14FC0F72009F7548 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,6 +641,7 @@
 		DC40FF2D14F945B4000F9281 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				DCCC376B14FC0F53009F7548 /* MBProgressHUD */,
 				1DF838CE14F7D24F007889F5 /* JSONKit */,
 				1DF8388214F7CFE8007889F5 /* ASIHTTPRequest */,
 				1DF8384714F7CF15007889F5 /* Common */,
@@ -658,6 +665,8 @@
 				1D6C1D0814FB8A5100DDA4CB /* SettingsViewController.m */,
 				1D6C1D0A14FBAD6600DDA4CB /* ZipCodeNumpadViewController.h */,
 				1D6C1D0B14FBAD6600DDA4CB /* ZipCodeNumpadViewController.m */,
+				DCCC376314FC0134009F7548 /* StationDetailsViewController.h */,
+				DCCC376414FC0134009F7548 /* StationDetailsViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -703,6 +712,15 @@
 				DCB2550014F8511D00444352 /* WMPB.json */,
 			);
 			name = jsons;
+			sourceTree = "<group>";
+		};
+		DCCC376B14FC0F53009F7548 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DCCC376D14FC0F72009F7548 /* MBProgressHUD.h */,
+				DCCC376E14FC0F72009F7548 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -927,6 +945,8 @@
 				DCCC375B14FAED85009F7548 /* UIColor+HexRGBAddition.m in Sources */,
 				1D6C1D0914FB8A5100DDA4CB /* SettingsViewController.m in Sources */,
 				1D6C1D0C14FBAD6600DDA4CB /* ZipCodeNumpadViewController.m in Sources */,
+				DCCC376514FC0135009F7548 /* StationDetailsViewController.m in Sources */,
+				DCCC376F14FC0F72009F7548 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

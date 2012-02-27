@@ -16,6 +16,8 @@
 #import "MKPolygon+BroadcastInfo.h"
 #import "MKPolyline+BroadcastInfo.h"
 #import "UIColor+HexRGBAddition.h"
+#import "StationDetailsViewController.h"
+#import "MBProgressHUD.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -23,8 +25,9 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 @interface MapMashupViewController () {
     CLLocationCoordinate2D currentLocation;
 }
-@property (strong, nonatomic) DTVClientAPI* dtvAPI;
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) DTVClientAPI* dtvAPI;
 @property (strong, nonatomic) NSMutableArray *polygonsArray;
 @property (strong, nonatomic) NSMutableArray *polygonsOverlayArray;
 @property (strong, nonatomic) GraphicalStation *selectedStationForDetails;
@@ -34,21 +37,33 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station;
 - (void)showPolygons:(id)sender;
 - (void)showBroadcastOverlays:(id)sender;
-- (void)displayStationDetails:(id)sender;
 - (void)zipCodeChanged:(id)sender;
+- (void)updateLocation:(CLPlacemark *)placemark;
+- (void)showsStationsForCurrentLocation:(id)sender;
+
 @end
 
 @implementation MapMashupViewController
 
 @synthesize mapView;
 @synthesize mainToolbar;
+@synthesize popoverSegue;
+@synthesize locationManager;
 @synthesize dtvAPI;
 @synthesize polygonsArray;
 @synthesize polygonsOverlayArray;
 @synthesize selectedStationForDetails;
+@synthesize showPolygons;
+@synthesize showOverlays;
+
+
+#pragma mark - View controller cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
     
     self.dtvAPI = [[DTVClientAPI alloc] init];
     self.dtvAPI.delegate = self;
@@ -56,11 +71,27 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     self.polygonsArray = [NSMutableArray array];
     self.polygonsOverlayArray = [NSMutableArray array];
     
-//    self.showPolygons = [NSUserDefaults ];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *showPolygonsNumber = [defaults objectForKey:USER_DEFAULTS_SHOW_POLYGONS];
+    
+    if (showPolygonsNumber == nil) {
+        self.showPolygons = NO;
+    } else {
+        self.showPolygons = [showPolygonsNumber boolValue];
+    }
+    
+    NSNumber *showOverlaysNumber = [defaults objectForKey:USER_DEFAULTS_SHOW_OVERLAYS];
+    
+    if (showOverlaysNumber == nil) {
+        self.showOverlays = NO;
+    } else {
+        self.showOverlays = [showOverlaysNumber boolValue];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPolygons:) name:NOTIFICATION_SHOW_POLYGONS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showBroadcastOverlays:) name:NOTIFICATION_SHOW_BROADCAST_OVERLAYS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zipCodeChanged:) name:NOTIFICATION_ZIP_CODE_CHANGED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showsStationsForCurrentLocation:) name:NOTIFICATION_SHOW_STATIONS_FOR_CURRENT_LOCATION object:nil];
 }
 
 - (void)viewDidUnload {
@@ -73,44 +104,29 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     return YES;
 }
 
-- (void)showPolygons:(id)sender {
-    NSNotification *notification = sender;
-    BOOL show = [((NSNumber *) notification.object) boolValue];
-    
-    if (!show) {
-        [self.mapView removeOverlays:self.polygonsArray];
-    } else {
-        [self.mapView addOverlays:self.polygonsArray];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [[segue identifier] isEqualToString:@"settingsPopoverSegue"] ) {
+        NSLog(@"%@",[segue destinationViewController]);
+        self.popoverSegue = (UIStoryboardPopoverSegue *)segue;
+        [[segue destinationViewController] setDelegate:self];
     }
 }
 
-- (void)showBroadcastOverlays:(id)sender {
-    NSNotification *notification = sender;
-    BOOL show = [((NSNumber *) notification.object) boolValue];
-    
-    if (!show) {
-        [self.mapView removeOverlays:polygonsOverlayArray];
-    } else {
-        [self.mapView addOverlays:polygonsOverlayArray];
-    }
-}
+#pragma mark - Location Manager Delegate
 
-- (void)zipCodeChanged:(id)sender {
-    NSNotification *notification = sender;
-    int newZipCode = [((NSNumber *) notification.object) intValue];
-    NSDictionary *addressDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", newZipCode], @"ZIP",  @"United States", @"Country", nil];
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation {
+    
+    NSLog(@"updating location...");
+    
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
-    [geoCoder geocodeAddressDictionary:addressDictionary completionHandler:^(NSArray *placemarks, NSError *error) {
+    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         for (CLPlacemark *placemark in placemarks) {
-//            [self.mapView setCenterCoordinate:placemark.location.coordinate animated:YES];
-            [self.dtvAPI getStationsForZip:placemark.postalCode];
-            currentLocation = placemark.location.coordinate;
+            [self updateLocation:placemark];
+            [self.locationManager stopUpdatingLocation];
         }
     }];
-}
-
-- (void)displayStationDetails:(id)sender {
-    NSLog(@"sender=%@", sender);
 }
 
 #pragma mark - Map View Delegate
@@ -125,12 +141,20 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
     [geoCoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
         for (CLPlacemark *placemark in placemarks) {
-            NSLog(@"addressDictionary=%@", placemark.addressDictionary);
-            NSLog(@"zip= %@", placemark.postalCode);
-            [self.dtvAPI getStationsForZip:placemark.postalCode];
-            currentLocation = placemark.location.coordinate;
+            [self updateLocation:placemark];
         }
     }];
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
+    if ([view.annotation isKindOfClass:[StationAnnotation class]]) {  // annotation for stations 
+        StationAnnotation *stationAnnotation = view.annotation;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        StationDetailsViewController *statationDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"CalloutViewController"];
+        statationDetailsViewController.stationWebsiteURLString = stationAnnotation.stationWebsiteURLString;
+        [self presentModalViewController:statationDetailsViewController animated:YES];
+    }
 }
 
 - (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation {
@@ -140,41 +164,59 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     if ([annotation isKindOfClass:[StationAnnotation class]]) {  // annotation for stations 
         StationAnnotation *stationAnnotation = annotation;
         
-        if (stationAnnotation.logoImage != nil) {
-            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:StationAnnotationIdentifier];
-//            annotationView.image = stationAnnotation.logoImage;
-            annotationView.image = stationAnnotation.stationImage;
-            annotationView.opaque = NO;
-            annotationView.canShowCallout = YES;
-            UIImageView *leftCalloutImageView = [[UIImageView alloc] initWithImage:stationAnnotation.logoImage];
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:StationAnnotationIdentifier];
+        annotationView.opaque = NO;
+        annotationView.canShowCallout = YES;
+        
+        // adding annotation image async
+        __weak ASIHTTPRequest *annotationImageRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:stationAnnotation.stationAnnotationImageURLString]];
+        [annotationImageRequest setCompletionBlock:^{
+            NSData *imageData = [annotationImageRequest responseData];
+            annotationView.image = [UIImage imageWithData:imageData];
+        }];
+        [annotationImageRequest setFailedBlock:^{
+            NSLog(@"Error while making the request: %@", annotationImageRequest.error.localizedDescription);
+        }];
+        [annotationImageRequest startAsynchronous];
+        
+        // adding callout image async
+        __weak ASIHTTPRequest *calloutImageRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:stationAnnotation.stationLogoImageURLString]];
+        [calloutImageRequest setCompletionBlock:^{
+            NSData *imageData = [calloutImageRequest responseData];
+            UIImageView *leftCalloutImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
             leftCalloutImageView.frame = CGRectMake(0, 0, 48.0, 32.0);
             annotationView.leftCalloutAccessoryView = leftCalloutImageView;
-            UIButton *stationDetailsButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            [stationDetailsButton addTarget:self action:@selector(displayStationDetails:) forControlEvents:UIControlStateNormal];
-            annotationView.rightCalloutAccessoryView = stationDetailsButton;
-            
-            return annotationView;
-        }
+        }];
+        [calloutImageRequest setFailedBlock:^{
+            NSLog(@"Error while making the request: %@", calloutImageRequest.error.localizedDescription);
+        }];
+        [calloutImageRequest startAsynchronous];
+
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        return annotationView;
     }
     
     MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
     return annView;
 }
 
-
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay {
     
-    if ([overlay isKindOfClass:[MKPolyline class]]) { // signal bounds polygon line 
+    if ([overlay isKindOfClass:[MKPolyline class]] && self.showPolygons) { // signal bounds polygon line 
         MKPolylineView *view = [[MKPolylineView alloc] initWithOverlay:overlay];
         view.lineWidth = 3;
         UIColor *color = ((MKPolyline *)overlay).broadcastColor;
         view.strokeColor = color;
         return view;
-    } else if([overlay isKindOfClass:[MKPolygon class]]) { // broadcast overlay type
+    } else if([overlay isKindOfClass:[MKPolygon class]] && self.showOverlays) { // broadcast overlay type
         MKPolygon *signalOverlay = overlay;
         StationSignalOverlayView *view = [[StationSignalOverlayView alloc] initWithOverlay:overlay];
         view.overlayBoundsCoordsStrArray = signalOverlay.coordinateBoundsArray;
-        view.broadcastOverlayImage = signalOverlay.broadcastOverlayImage;
+        
+        // should be displayed only if show overlays is true
+        view.broadcastOverlayImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:signalOverlay.broadcastOverlayURLString]]];
+
         return view;
     }
     return nil;
@@ -184,18 +226,13 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 - (void) didFindResults:(NSArray*) results {
     FCCService *fccService = [[FCCService alloc] init];
     
-        for (NSString *stationName in results) {        
-            [fccService downloadFCCData:stationName delegate:self];
-        }
-    
-//    [fccService downloadFCCData:@"WMPB" delegate:self];
+    for (NSString *stationName in results) {        
+        [fccService downloadFCCData:stationName delegate:self];
+    }
 }
 
 - (void)didFail:(NSError *)error {
     NSLog(@"request failed, reason: %@", error.localizedDescription);
-    //    FCCService *fccService = [[FCCService alloc] init];
-    //    [fccService downloadFCCData:@"WMPB" delegate:self];
-    //    [fccService downloadFCCData:@"WHUT" delegate:self];
 }
 
 #pragma mark - ASIHTTPRequest Delegate
@@ -207,13 +244,6 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 
 #pragma mark - private methods
 - (void)addGrapicalStationOnMap:(GraphicalStation *)station {
-    
-//    [self.mapView removeOverlays:polygonsArray];
-//    [self.polygonsArray removeAllObjects];
-//    [self.mapView removeOverlays:polygonsOverlayArray];
-//    [self.polygonsOverlayArray removeAllObjects];
-    
-    NSLog(@"adding graphical station: %@", station.callsign);
     
     int numberOfPoints = station.polygonCoordinatesArray.count;
     CLLocationCoordinate2D polygonCoordinates[numberOfPoints];
@@ -230,25 +260,69 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     [self.polygonsArray addObject:stationPolylineOverlay];
     
     MKPolygon *broadcastPolygonOverlay = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
-    
-    __weak ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:station.broadcastOverlayUrlString]];
-    [request setCompletionBlock:^{
-        NSData *imageData = [request responseData];
-        broadcastPolygonOverlay.broadcastOverlayImage = [UIImage imageWithData:imageData];
-    }];
-    [request setFailedBlock:^{
-        NSLog(@"Error while making the request: %@", request.error.localizedDescription);
-    }];
-    [request startAsynchronous];
-    
+    broadcastPolygonOverlay.broadcastOverlayURLString = station.broadcastOverlayUrlString;
     broadcastPolygonOverlay.coordinateBoundsArray = station.polygonBounds;
     [self.mapView addOverlay:broadcastPolygonOverlay];
     [self.polygonsOverlayArray addObject:broadcastPolygonOverlay];
     
     [self.mapView addAnnotation:[StationAnnotation stationAnnotationFromGraphicalStation:station]];
-    
+
     [self.mapView setCenterCoordinate:currentLocation];
 }
 
+- (void)showPolygons:(id)sender {
+    NSNotification *notification = sender;
+    BOOL show = [((NSNumber *) notification.object) boolValue];
+    self.showPolygons = show;
+    
+    if (!show) {
+        [self.mapView removeOverlays:self.polygonsArray];
+    } else {
+        [self.mapView addOverlays:self.polygonsArray];
+    }
+}
+
+- (void)showBroadcastOverlays:(id)sender {
+    NSNotification *notification = sender;
+    BOOL show = [((NSNumber *) notification.object) boolValue];
+    self.showOverlays = show;
+
+    if (!show) {
+        [self.mapView removeOverlays:polygonsOverlayArray];
+    } else {
+        [self.mapView addOverlays:polygonsOverlayArray];
+    }
+}
+
+- (void)zipCodeChanged:(id)sender {
+    NSNotification *notification = sender;
+    int newZipCode = [((NSNumber *) notification.object) intValue];
+    NSDictionary *addressDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", newZipCode], @"ZIP",  @"United States", @"Country", nil];
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder geocodeAddressDictionary:addressDictionary completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *placemark in placemarks) {
+            [self updateLocation:placemark];
+        }
+    }];
+    if ([self.popoverSegue.popoverController isPopoverVisible]) {
+        [self.popoverSegue.popoverController dismissPopoverAnimated:YES];        
+    }
+}
+
+- (void)showsStationsForCurrentLocation:(id)sender {
+    if ([self.popoverSegue.popoverController isPopoverVisible]) {
+        [self.popoverSegue.popoverController dismissPopoverAnimated:YES];        
+    }
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)updateLocation:(CLPlacemark *)placemark {
+    [self.mapView removeOverlays:polygonsArray];
+    [self.polygonsArray removeAllObjects];
+    [self.mapView removeOverlays:polygonsOverlayArray];
+    [self.polygonsOverlayArray removeAllObjects];
+    [self.dtvAPI getStationsForZip:placemark.postalCode];
+    currentLocation = placemark.location.coordinate;
+}
 
 @end

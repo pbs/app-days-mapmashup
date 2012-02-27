@@ -11,10 +11,12 @@
 #import <MapKit/MKAnnotation.h>
 #import "ASIHTTPRequestDelegate.h"
 #import "DTVClientAPI.h"
+#import "MBProgressHUD.h"
 
-@interface MapMashupViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate, DTVClientAPIDelegate, ASIHTTPRequestDelegate>
+@interface MapMashupViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate, DTVClientAPIDelegate, ASIHTTPRequestDelegate, MBProgressHUDDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIToolbar *mainToolbar;
+@property (strong, nonatomic) UIStoryboardPopoverSegue *popoverSegue;
 
 @end

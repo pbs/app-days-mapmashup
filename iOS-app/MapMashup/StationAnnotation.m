@@ -14,9 +14,9 @@
 
 @synthesize title;
 @synthesize coordinate;
-@synthesize stationImage;
-@synthesize logoImage;
-@synthesize stationTitle;
+@synthesize stationAnnotationImageURLString;
+@synthesize stationLogoImageURLString;
+@synthesize stationWebsiteURLString;
 
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
     coordinate = newCoordinate;
@@ -27,28 +27,16 @@
 }
 
 + (StationAnnotation *)stationAnnotationFromGraphicalStation:(GraphicalStation *)graphicalStation {
-    
     CLLocationDegrees stationLatitude = [[graphicalStation.towerCoordinates objectAtIndex:0] doubleValue];
     CLLocationDegrees stationLongitude = [[graphicalStation.towerCoordinates objectAtIndex:1] doubleValue];
     CLLocationCoordinate2D stationCoordinate = CLLocationCoordinate2DMake(stationLatitude, stationLongitude);
-    __block StationAnnotation *annotation = [[StationAnnotation alloc] init];
-    annotation.coordinate = stationCoordinate;
-    annotation.stationTitle = graphicalStation.callsign;
-    annotation.title = graphicalStation.callsign;
     
-    __weak ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:graphicalStation.towerImageURLString]];
-    [request setCompletionBlock:^{
-        NSData *imageData = [request responseData];
-        annotation.stationImage = [UIImage imageWithData:imageData];
-    }];
-    [request setFailedBlock:^{
-        NSLog(@"Error while making the request: %@", request.error.localizedDescription);
-    }];
-    [request startAsynchronous];
-
-    NSURL *logoURL = [NSURL URLWithString:graphicalStation.stationLogoUrlString];
-    NSData *logoData = [NSData dataWithContentsOfURL:logoURL];
-    annotation.logoImage = [UIImage imageWithData:logoData];
+    StationAnnotation *annotation = [[StationAnnotation alloc] init];
+    annotation.coordinate = stationCoordinate;
+    annotation.title = graphicalStation.callsign;
+    annotation.stationAnnotationImageURLString = graphicalStation.towerImageURLString;
+    annotation.stationLogoImageURLString = graphicalStation.stationLogoUrlString;
+    annotation.stationWebsiteURLString = graphicalStation.stationWebsiteUrlString;
     return annotation;
 }
 

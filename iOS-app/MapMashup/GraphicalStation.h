@@ -20,5 +20,6 @@
 @property (strong, nonatomic) NSString *towerImageURLString;
 @property (strong, nonatomic) NSString *stationLogoUrlString;
 @property (strong, nonatomic) NSString *broadcastOverlayUrlString;
+@property (strong, nonatomic) NSString *stationWebsiteUrlString;
 
 @end

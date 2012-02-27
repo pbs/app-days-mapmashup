@@ -14,7 +14,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:YES] forKey:USER_DEFAULTS_SHOW_POLYGONS];
+    [defaults setObject:[NSNumber numberWithBool:NO] forKey:USER_DEFAULTS_SHOW_OVERLAYS];
+    [defaults synchronize];
     return YES;
 }
 							

@@ -18,6 +18,7 @@
 @synthesize towerImageURLString;
 @synthesize stationLogoUrlString;
 @synthesize broadcastOverlayUrlString;
+@synthesize stationWebsiteUrlString;
 
 + (GraphicalStation *) stationFromDictionary:(NSDictionary *)dictionary {
     GraphicalStation *station = [[GraphicalStation alloc] init];
@@ -27,8 +28,10 @@
     station.polygonBounds = [dictionary objectForKey:@"polygonBounds"];
     station.stationColorRGBValue = [dictionary objectForKey:@"stationColor"];
     station.polygonCoordinatesArray = [dictionary objectForKey:@"polygonCoordinatesArray"];
+    station.towerImageURLString = [dictionary objectForKey:@"towerimage"];
     station.stationLogoUrlString = [dictionary objectForKey:@"stationlogo"];
     station.broadcastOverlayUrlString = [dictionary objectForKey:@"broadcastOverlay"];
+    station.stationWebsiteUrlString = [dictionary objectForKey:@"station_website"];
     
     return station;
 }
