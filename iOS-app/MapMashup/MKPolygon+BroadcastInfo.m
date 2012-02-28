@@ -13,6 +13,7 @@
 
 static char boundsArrayKey;
 static char imageOverlayKey;
+static char imageOverlayURLKey;
 
 - (void)setCoordinateBoundsArray:(NSArray *)coordinateBoundsArray {
     objc_setAssociatedObject( self, &boundsArrayKey, coordinateBoundsArray, OBJC_ASSOCIATION_RETAIN);
@@ -22,12 +23,20 @@ static char imageOverlayKey;
     return objc_getAssociatedObject( self, &boundsArrayKey);
 }
 
-- (void)setBroadcastOverlayURLString:(NSString *)broadcastOverlayURLString {
-   objc_setAssociatedObject( self, &imageOverlayKey, broadcastOverlayURLString, OBJC_ASSOCIATION_RETAIN); 
+- (void)setBroadcastOverlayImage:(UIImage *)broadcastOverlayImage {
+   objc_setAssociatedObject( self, &imageOverlayKey, broadcastOverlayImage, OBJC_ASSOCIATION_RETAIN); 
 }
 
-- (NSString *)broadcastOverlayURLString {
+- (UIImage *)broadcastOverlayImage {
    return objc_getAssociatedObject( self, &imageOverlayKey); 
+}
+
+- (void)setBroadcastOverlayImageURLString:(NSString *)broadcastOverlayImageURLString {
+   objc_setAssociatedObject( self, &imageOverlayURLKey, broadcastOverlayImageURLString, OBJC_ASSOCIATION_RETAIN);  
+}
+
+- (NSString *)broadcastOverlayImageURLString {
+   return objc_getAssociatedObject( self, &imageOverlayURLKey);  
 }
 
 @end

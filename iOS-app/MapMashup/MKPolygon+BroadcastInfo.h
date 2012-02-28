@@ -11,6 +11,7 @@
 @interface MKPolygon (BroadcastInfo)
 
 @property (strong, nonatomic) NSArray *coordinateBoundsArray;
-@property (strong, nonatomic) NSString *broadcastOverlayURLString;
+@property (strong, nonatomic) UIImage *broadcastOverlayImage;
+@property (strong, nonatomic) NSString *broadcastOverlayImageURLString;
 
 @end

@@ -109,7 +109,6 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [[segue identifier] isEqualToString:@"settingsPopoverSegue"] ) {
-        NSLog(@"%@",[segue destinationViewController]);
         self.popoverSegue = (UIStoryboardPopoverSegue *)segue;
         [[segue destinationViewController] setDelegate:self];
     }
@@ -193,7 +192,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
             NSLog(@"Error while making the request: %@", calloutImageRequest.error.localizedDescription);
         }];
         [calloutImageRequest startAsynchronous];
-
+        
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         
         return annotationView;
@@ -213,13 +212,13 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
         return view;
     } else if([overlay isKindOfClass:[MKPolygon class]] && self.showOverlays) { // broadcast overlay type
         MKPolygon *signalOverlay = overlay;
-        StationSignalOverlayView *view = [[StationSignalOverlayView alloc] initWithOverlay:overlay];
-        view.overlayBoundsCoordsStrArray = signalOverlay.coordinateBoundsArray;
         
-        // should be displayed only if show overlays is true
-        view.broadcastOverlayImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:signalOverlay.broadcastOverlayURLString]]];
-
-        return view;
+        if (signalOverlay.broadcastOverlayImage != nil) {
+            StationSignalOverlayView *view = [[StationSignalOverlayView alloc] initWithOverlay:overlay];
+            view.overlayBoundsCoordsStrArray = signalOverlay.coordinateBoundsArray;
+            view.broadcastOverlayImage = signalOverlay.broadcastOverlayImage;
+            return view;
+        }
     }
     return nil;
 }
@@ -241,7 +240,10 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
     NSDictionary *stationsFCCArray = [[request responseData] objectFromJSONData];
-    [self addGrapicalStationOnMap:[GraphicalStation stationFromDictionary:stationsFCCArray]];
+    
+    if (stationsFCCArray != nil) {
+        [self addGrapicalStationOnMap:[GraphicalStation stationFromDictionary:stationsFCCArray]];
+    }
 }
 
 #pragma mark - private methods
@@ -262,15 +264,18 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     [self.polygonsArray addObject:stationPolylineOverlay];
     
     MKPolygon *broadcastPolygonOverlay = [MKPolygon polygonWithCoordinates:polygonCoordinates count:numberOfPoints];
-    broadcastPolygonOverlay.broadcastOverlayURLString = station.broadcastOverlayUrlString;
     broadcastPolygonOverlay.coordinateBoundsArray = station.polygonBounds;
-    [self.mapView addOverlay:broadcastPolygonOverlay];
+    broadcastPolygonOverlay.broadcastOverlayImageURLString = station.broadcastOverlayUrlString;
     [self.polygonsOverlayArray addObject:broadcastPolygonOverlay];
+    
+    if (showOverlays) {
+        [self.mapView addOverlay:broadcastPolygonOverlay];
+    } 
     
     StationAnnotation *stationAnnotation = [StationAnnotation stationAnnotationFromGraphicalStation:station];
     [self.mapView addAnnotation:stationAnnotation];
     [self.stationAnnotationsArray addObject:stationAnnotation];
-
+    
     [self.mapView setCenterCoordinate:currentLocation];
 }
 
@@ -290,11 +295,29 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     NSNotification *notification = sender;
     BOOL show = [((NSNumber *) notification.object) boolValue];
     self.showOverlays = show;
-
+    
     if (!show) {
-        [self.mapView removeOverlays:polygonsOverlayArray];
+        [self.mapView removeOverlays:self.polygonsOverlayArray];
     } else {
-        [self.mapView addOverlays:polygonsOverlayArray];
+        for (MKPolygon *overlayPol in self.polygonsOverlayArray) {
+            
+            if (overlayPol.broadcastOverlayImage != nil) {
+                [self.mapView addOverlay:overlayPol];
+            } else {
+                
+                // adding callout image async
+                __weak ASIHTTPRequest *overlayImageRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:overlayPol.broadcastOverlayImageURLString]];
+                [overlayImageRequest setCompletionBlock:^{
+                    NSData *imageData = [overlayImageRequest responseData];
+                    overlayPol.broadcastOverlayImage = [UIImage imageWithData:imageData];
+                    [self.mapView addOverlay:overlayPol];
+                }];
+                [overlayImageRequest setFailedBlock:^{
+                    NSLog(@"Error while making the request: %@", overlayImageRequest.error.localizedDescription);
+                }];
+                [overlayImageRequest startAsynchronous];
+            }
+        }
     }
 }
 
