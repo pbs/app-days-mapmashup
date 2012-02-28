@@ -269,7 +269,18 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/
     [self.polygonsOverlayArray addObject:broadcastPolygonOverlay];
     
     if (showOverlays) {
-        [self.mapView addOverlay:broadcastPolygonOverlay];
+        
+        // adding callout image async
+        __weak ASIHTTPRequest *overlayImageRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:station.broadcastOverlayUrlString]];
+        [overlayImageRequest setCompletionBlock:^{
+            NSData *imageData = [overlayImageRequest responseData];
+            broadcastPolygonOverlay.broadcastOverlayImage = [UIImage imageWithData:imageData];
+            [self.mapView addOverlay:broadcastPolygonOverlay];
+        }];
+        [overlayImageRequest setFailedBlock:^{
+            NSLog(@"Error while making the request: %@", overlayImageRequest.error.localizedDescription);
+        }];
+        [overlayImageRequest startAsynchronous];
     } 
     
     StationAnnotation *stationAnnotation = [StationAnnotation stationAnnotationFromGraphicalStation:station];
